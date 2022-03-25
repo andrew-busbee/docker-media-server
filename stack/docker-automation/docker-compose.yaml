@@ -162,6 +162,16 @@ services:
       - 8181:8181
     restart: unless-stopped
 ###################################################################
+  flame:
+    image: pawelmalak/flame:latest
+    container_name: flame
+    volumes:
+      - /home/andrew/docker/flame/config:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock # optional but required for Docker integration feature
+    ports:
+      - 5005:5005
+    restart: unless-stopped
+###################################################################    
 networks:
   default:
     driver: bridge
