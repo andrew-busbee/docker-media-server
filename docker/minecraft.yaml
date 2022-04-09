@@ -13,7 +13,7 @@ services:
       # https://github.com/itzg/docker-minecraft-server#memory-limit
       MEMORY: $MEMORY
       # uncomment this to import a saved game. (put your savegame directory in the saves-to-import directory)
-      WORLD: $WORLD
+      #WORLD: $WORLD
 
     volumes:
       - $DOCKERDIR/minecraft-data:/data
