@@ -4,7 +4,7 @@ services:
     image: mysql:5.7
     container_name: $MYSQLCONTAINERNAME1
     volumes:
-      - DBDIR1/mysql:/var/lib/mysql
+      - $DBDIR1/mysql:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: $MYSQLROOTPASSWORD
