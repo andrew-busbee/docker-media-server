@@ -26,9 +26,3 @@ services:
       WORDPRESS_DB_USER: $MYSQLUSER
       WORDPRESS_DB_PASSWORD: $MYSQLPASSWORD
       WORDPRESS_DB_NAME: $MYSQLDATABASE
-networks:
-  default:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: $SUBNET
