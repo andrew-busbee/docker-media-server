@@ -1,56 +1,28 @@
 version: "3.9"
 services:
-  db1:
+  db:
     image: mysql:5.7
-    container_name: $MYSQLCONTAINERNAME1
+    container_name: $MYSQLCONTAINERNAME
     volumes:
-      - $DBDIR1/mysql:/var/lib/mysql
+      - $DBDIR/mysql:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: $MYSQLROOTPASSWORD
-      MYSQL_DATABASE: $MYSQLDATABASE1
+      MYSQL_DATABASE: $MYSQLDATABASE
       MYSQL_USER: $MYSQLUSER
       MYSQL_PASSWORD: $MYSQLPASSWORD
   wordpress:
     depends_on:
-      - db1
+      - db
     image: wordpress:latest
-    container_name: $WORDPRESSCONTAINERNAME1
+    container_name: $WORDPRESSCONTAINERNAME
     volumes:
-      - $WEBSITEDIR1/wordpress:/var/www/html
+      - $WEBSITEDIR/wordpress:/var/www/html
     ports:
       - "8080:80"
     restart: always
     environment:
-      WORDPRESS_DB_HOST: db1:3306
-      WORDPRESS_DB_USER: $WORDPRESSDBUSER
-      WORDPRESS_DB_PASSWORD: $WORDPRESSDBPASSWORD
-      WORDPRESS_DB_NAME: $WORDPRESSDBNAME
-###########WEBSITE2#####################
-  db2:
-    image: mysql:5.7
-    container_name: $MYSQLCONTAINERNAME1
-    volumes:
-      - $DBDIR2/mysql:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: $MYSQLROOTPASSWORD
-      MYSQL_DATABASE: $MYSQLDATABASE2
-      MYSQL_USER: $MYSQLUSER
-      MYSQL_PASSWORD: $MYSQLPASSWORD
-    
-  wordpress:
-    depends_on:
-      - db2
-    image: wordpress:latest
-    container_name: $WORDPRESSCONTAINERNAME1
-    volumes:
-      - $WEBSITEDIR2/wordpress:/var/www/html
-    ports:
-      - "8484:80"
-    restart: always
-    environment:
-      WORDPRESS_DB_HOST: db2:3306
+      WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: $WORDPRESSDBUSER
       WORDPRESS_DB_PASSWORD: $WORDPRESSDBPASSWORD
       WORDPRESS_DB_NAME: $WORDPRESSDBNAME
