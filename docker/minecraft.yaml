@@ -14,7 +14,9 @@ services:
       MEMORY: $MEMORY
       # uncomment this to import a saved game. (put your savegame directory in the saves-to-import directory)
       #WORLD: $WORLD
-
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
     volumes:
       - $DOCKERDIR/minecraft-data:/data
       - $DOCKERDIR/saves-to-import:/worlds:ro
