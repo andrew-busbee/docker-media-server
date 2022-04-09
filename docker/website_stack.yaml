@@ -19,10 +19,16 @@ services:
     volumes:
       - $WEBSITEDIR/wordpress:/var/www/html
     ports:
-      - "8080:80"
+      - $PORTS
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: $MYSQLUSER
       WORDPRESS_DB_PASSWORD: $MYSQLPASSWORD
       WORDPRESS_DB_NAME: $MYSQLDATABASE
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: $SUBNET
