@@ -10,5 +10,18 @@ services:
     volumes:
       - $DOCKERDIR/overseerr/config:/config
     ports:
-      - $PORTS
+      - $OVERSEERR_PORTS
+    restart: unless-stopped
+###############################################################
+  tautulli:
+    image: ghcr.io/linuxserver/tautulli
+    container_name: tautulli
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TIMEZONE
+    volumes:
+      - $DOCKERDIR/tautulli/config:/config
+    ports:
+      - $TAUTULI_PORTS8181:8181
     restart: unless-stopped
