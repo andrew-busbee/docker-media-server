@@ -81,19 +81,19 @@ services:
       - 8282:8181
     restart: unless-stopped
 ################################################################
-  heimdall:
-    image: ghcr.io/linuxserver/heimdall
-    container_name: heimdall
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Chicago
-    volumes:
-      - $DOCKERDIR/heimdall/config:/config
-    ports:
-      - 8089:80
-      - 8443:443
-    restart: unless-stopped
+#  heimdall:
+#    image: ghcr.io/linuxserver/heimdall
+#    container_name: heimdall
+#    environment:
+#      - PUID=1000
+#      - PGID=1000
+#      - TZ=America/Chicago
+#    volumes:
+#      - $DOCKERDIR/heimdall/config:/config
+#    ports:
+#      - 8089:80
+#      - 8443:443
+#    restart: unless-stopped
 ###########################################################
   radarr:
     image: ghcr.io/linuxserver/radarr
