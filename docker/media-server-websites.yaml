@@ -11,7 +11,7 @@ services:
       - $DOCKERDIR/overseerr/config:/config
     ports:
       - $OVERSEERR_PORTS
-    restart: unless-stopped
+    restart: $RESTART
 ###############################################################
   tautulli:
     image: ghcr.io/linuxserver/tautulli
@@ -24,4 +24,18 @@ services:
       - $DOCKERDIR/tautulli/config:/config
     ports:
       - $TAUTULI_PORTS
-    restart: unless-stopped
+    restart: $RESTART
+###############################################################
+  heimdall:
+    image: ghcr.io/linuxserver/heimdall
+    container_name: heimdall
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TIMEZONE
+    volumes:
+      - $DOCKERDIR/heimdall/config:/config
+    ports:
+      - $HEIMDALL_PORTS_HTTP
+#      - $HEIMDALL_PORTS_HTTPS
+    restart: $RESTART
