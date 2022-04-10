@@ -10,6 +10,7 @@ services:
       SERVER_NAME: $SERVERNAME
       MOTD: $MOTD
       DIFFICULTY: $DIFFICULTY
+      VERSION: $VERSION
       # https://github.com/itzg/docker-minecraft-server#memory-limit
       MEMORY: $MEMORY
       # uncomment this to import a saved game. (put your savegame directory in the saves-to-import directory)
