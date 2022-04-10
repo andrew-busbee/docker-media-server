@@ -17,7 +17,7 @@ services:
       MAX_PLAYERS: $MAXPLAYERS
       ALLOW_NETHER: $ALLOWNETHER
       ANNOUNCE_PLAYER_ACHIEVEMENTS: $ANNOUNCEPLAYERACHIEVEMENTS
-      SNOOPER-ENABLED: false
+      SNOOPER-ENABLED: "false"
       PUBLIC: $PUBLIC
       # uncomment this to import a saved game. (put your savegame directory in the saves-to-import directory)
       #WORLD: $WORLD
