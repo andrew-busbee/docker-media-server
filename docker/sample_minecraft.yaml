@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  skyblock:
+    image: itzg/minecraft-server
+    container_name: mc
+    restart: unless-stopped
+    ports:
+      - "25565:25565"
+      - "8123:8123" # dynmap
+    volumes:
+       - "/etc/minecraft/server:/data"
+    command: --noconsole
+    environment:
+      EULA: "TRUE"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "testing"
+      RCON_PORT: 28016
+      INIT_MEMORY: 1G
+      MAX_MEMORY: 4G
+      JVM_OPTS: -server
+      OVERRIDE_SERVER_PROPERTIES: 'false'
+      VERSION: 1.14.4
+      SERVER_NAME: MyServer
+      DIFFICULTY: hard
+      WHITELIST: adminadmin
+      OPS: adminadmin
+      MAX_PLAYERS: 20
+      ANNOUNCE_PLAYER_ACHIEVEMENTS: 'true'
+      SNOOPER_ENABLED: 'false'
+      MODE: survival
+      MOTD: My Server Thing
+      SPAWN_PROTECTION: 16
+      TYPE: PAPER
+      ONLINE_MODE: 'true'
