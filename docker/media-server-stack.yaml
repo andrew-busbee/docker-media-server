@@ -1,19 +1,6 @@
 ---
 version: '3.1'
 services:
-  filebrowser:
-    container_name: filebrowser
-    image: hurlenko/filebrowser
-    user: "${UID}:${GID}"
-    ports:
-      - 8081:8080
-    volumes:
-      - $USERDIR/shares/quarantine/USB_Uploads:/data
-      - $DOCKERDIR/filebrowser/config:/config
-    environment:
-      - FB_BASEURL=/filebrowser
-    restart: always
-##############################################################
   handbrakevmovies:
     image: jlesage/handbrake
 #    cpus: 3.9
@@ -80,20 +67,6 @@ services:
     ports:
       - 8282:8181
     restart: unless-stopped
-################################################################
-#  heimdall:
-#    image: ghcr.io/linuxserver/heimdall
-#    container_name: heimdall
-#    environment:
-#      - PUID=1000
-#      - PGID=1000
-#      - TZ=America/Chicago
-#    volumes:
-#      - $DOCKERDIR/heimdall/config:/config
-#    ports:
-#      - 8089:80
-#      - 8443:443
-#    restart: unless-stopped
 ###########################################################
   radarr:
     image: ghcr.io/linuxserver/radarr
@@ -149,45 +122,9 @@ services:
       - 8989:8989
     restart: unless-stopped
 ###################################################################
-#  tautulli:
-#    image: ghcr.io/linuxserver/tautulli
-#    container_name: tautulli
-#    environment:
-#      - PUID=1000
-#      - PGID=1000
-#      - TZ=America/Chicago
-#    volumes:
-#      - $DOCKERDIR/tautulli/config:/config
-#    ports:
-#      - 8181:8181
-#    restart: unless-stopped
-###################################################################
-#  overseerr:
-#    image: lscr.io/linuxserver/overseerr
-#    container_name: overseerr
-#    environment:
-#      - PUID=1000
-#      - PGID=1000
-#      - TZ=America/Chicago
-#    volumes:
-#      - $DOCKERDIR/overseerr/config:/config
-#    ports:
-#      - 5055:5055
-#    restart: unless-stopped
-###################################################################
-  flame:
-    image: pawelmalak/flame:latest
-    container_name: flame
-    volumes:
-      - $DOCKERDIR/flame/config:/app/data
-      - /var/run/docker.sock:/var/run/docker.sock # optional but required for Docker integration feature
-    ports:
-      - 5005:5005
-    restart: unless-stopped
-###################################################################    
-networks:
-  default:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.10.0/24
+#networks:
+#  default:
+#    driver: bridge
+#    ipam:
+#      config:
+#        - subnet: 192.168.10.0/24
