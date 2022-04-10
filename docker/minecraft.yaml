@@ -14,6 +14,10 @@ services:
       # https://github.com/itzg/docker-minecraft-server#memory-limit
       MEMORY: $MEMORY
       MODE: $MODE
+      MAX_PLAYERS: $MAXPLAYERS
+      ALLOW_NETHER: $ALLOWNETHER
+      ANNOUNCE_PLAYER_ACHIEVEMENTS: $ANNOUNCEPLAYERACHIEVEMENTS
+      SNOOPER_ENABLED: false
       # uncomment this to import a saved game. (put your savegame directory in the saves-to-import directory)
       #WORLD: $WORLD
     tty: true
