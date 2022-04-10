@@ -23,5 +23,5 @@ services:
     volumes:
       - $DOCKERDIR/tautulli/config:/config
     ports:
-      - $TAUTULI_PORTS8181:8181
+      - $TAUTULI_PORTS
     restart: unless-stopped
