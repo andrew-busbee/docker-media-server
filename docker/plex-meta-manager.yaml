@@ -7,5 +7,5 @@ services:
     environment:
       - TZ=America/Chicago
     volumes:
-      - $DOCKERDIR/plex-meta-manager/config
+      - $DOCKERDIR/plex-meta-manager/config:/config
     restart: unless-stopped
