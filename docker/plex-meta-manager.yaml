@@ -1,1 +1,13 @@
-docker run --rm -it -v "/Users/mroche/plex-meta-manager:/config:rw" meisnate12/plex-meta-manager
+#docker run --rm -it -v "/Users/mroche/plex-meta-manager:/config:rw" meisnate12/plex-meta-manager
+version: '3.1'
+services:
+  plex-meta-manager:
+    image: meisnate12/plex-meta-manager
+    container_name: plex_meta_manager
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+    volumes:
+      - $DOCKERDIR/plex-meta-manager/config:/config:rw
+    restart: unless-stopped
