@@ -1,5 +1,4 @@
-#docker run --rm -it -v "/Users/mroche/plex-meta-manager:/config:rw" meisnate12/plex-meta-manager
-version: '3.1'
+version: '2.1'
 services:
   plex-meta-manager:
     image: meisnate12/plex-meta-manager
