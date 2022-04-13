@@ -10,4 +10,15 @@ services:
     volumes:
       - "./data:/data"
       - "/var/log:/var/log:ro"
+    environment:
+      - TZ=$TZ #Europe/Paris
+      - F2B_LOG_TARGET=$F2BLOGTARGET #STDOUT
+      - F2B_LOG_LEVEL=$F2BLOGLEVEL #INFO
+      - F2B_DB_PURGE_AGE=$DBPURGEAGE #1d
+      - SSMTP_HOST=$SMTPHOST #smtp.example.com
+      - SSMTP_PORT=$SMTPPORT #587
+      - SSMTP_HOSTNAME=$SMTPHOSTNAME #example.com
+      - SSMTP_USER=$SMTPUSER #smtp@example.com
+      - SSMTP_PASSWORD=#SMTPPASS
+      - SSMTP_TLS=$SMTPTLS #YES
     restart: always
