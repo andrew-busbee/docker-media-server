@@ -10,7 +10,7 @@ services:
     volumes:
       - "$DOCKERDIR/fail2ban/data:/data"
       - "/var/log:/var/log:ro"
-      - "DOCKERDIR/nginx/config/data/logs/:/log/npm/:ro"
+      - "$DOCKERDIR/nginx/config/data/logs/:/log/npm/:ro"
     environment:
       - TZ=$TZ #Europe/Paris
       - F2B_LOG_TARGET=$F2BLOGTARGET #STDOUT
