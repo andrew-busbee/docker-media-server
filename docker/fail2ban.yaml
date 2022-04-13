@@ -8,8 +8,9 @@ services:
       - NET_ADMIN
       - NET_RAW
     volumes:
-      - "./data:/data"
+      - "$DOCKERDIR/fail2ban/data:/data"
       - "/var/log:/var/log:ro"
+      - "DOCKERDIR/nginx/config/logs/:/log/npm/:ro"
     environment:
       - TZ=$TZ #Europe/Paris
       - F2B_LOG_TARGET=$F2BLOGTARGET #STDOUT
