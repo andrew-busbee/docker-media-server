@@ -9,8 +9,8 @@ services:
       - NET_RAW
     volumes:
       - "$DOCKERDIR/fail2ban/data:/data"
-      - "/var/log:/var/log:ro"
-      - "$DOCKERDIR/nginx/config/data/logs/:/log/nginx:ro"
+      - "/var/log/auth.log:/var/log/auth.log:ro"
+      - "$DOCKERDIR/nginx/config/data/logs/:/log/npm/:ro"
       #- /etc/localtime:/etc/localtime:ro
       #- "/var/log/auth.log:/var/log/auth.log:ro"
 environment:
