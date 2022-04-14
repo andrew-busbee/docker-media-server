@@ -9,11 +9,10 @@ services:
       - NET_RAW
     volumes:
       - "$DOCKERDIR/fail2ban/data:/data"
-      - "/var/log/auth.log:/var/log/auth.log:ro"
+      #- "/var/log/auth.log:/var/log/auth.log:ro"
       - "$DOCKERDIR/nginx/config/data/logs/:/log/npm/:ro"
       #- /etc/localtime:/etc/localtime:ro
-      #- "/var/log/auth.log:/var/log/auth.log:ro"
-environment:
+    environment:
       - TZ=$TZ #Europe/Paris
       - F2B_LOG_TARGET=$F2BLOGTARGET #STDOUT
       - F2B_LOG_LEVEL=$F2BLOGLEVEL #INFO
