@@ -11,7 +11,7 @@ services:
       - "$DOCKERDIR/fail2ban/data:/data"
       - "/var/log:/var/log:ro"
       - "$DOCKERDIR/nginx/config/data/logs/:/log/nginx:ro"
-      - /etc/localtime:/etc/localtime:ro
+      #- /etc/localtime:/etc/localtime:ro
       - /var/log:/var/log:ro
       #- "/var/log/auth.log:/var/log/auth.log:ro"
 environment:
