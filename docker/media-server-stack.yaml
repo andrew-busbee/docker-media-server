@@ -103,8 +103,8 @@ services:
       - $SABDIR/incomplete:/incomplete
       - $SABDIR/complete:/complete
       #Delete the following after migration
-      - $DOCKERDIR/sabnzbd/sabnzbd_snatch_temp:/incomplete
-      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
+  #    - $DOCKERDIR/sabnzbd/sabnzbd_snatch_temp:/incomplete
+   #   - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
     ports:
       - 8383:8080
       - 9191:9090
