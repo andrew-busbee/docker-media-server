@@ -21,7 +21,7 @@ services:
     volumes:
       - $DOCKERDIR/handbrake_movies/config:/config:rw
       - $SHAREDIR:/storage:ro 
-      - $SHAREDIR/movies:/tv-series:rw  
+      - $SHAREDIR/movies:/movies:rw  
       - $SABDIR/complete/Movies:/watch:rw        
     ports:
       - 5802:5800
