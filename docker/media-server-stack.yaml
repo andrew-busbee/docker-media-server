@@ -103,6 +103,7 @@ services:
       - $DOCKERDIR/sabnzbd/config:/config
       - $SABDIR/incomplete:/incomplete
       - $SABDIR/complete:/complete
+      - $SABDIR/temp:/temp
       #Delete the following after migration
   #    - $DOCKERDIR/sabnzbd/sabnzbd_snatch_temp:/incomplete
    #   - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
