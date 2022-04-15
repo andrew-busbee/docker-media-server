@@ -63,7 +63,7 @@ services:
     volumes:
       - $DOCKERDIR/headphones/config:/config
       - $SABDIR/complete:/complete
-      #- $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
+#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
       - $SHAREDIR/music:/music
     ports:
       - 8282:8181
@@ -81,13 +81,13 @@ services:
       - $SABDIR/incomplete:/incomplete
       - $SABDIR/complete:/complete
       #Delete the following after migration
-      - $SHAREDIR/movies:/movies
-      - $SHAREDIR/movies-anime:/movies-anime
-      - $SHAREDIR/movies-christmas:/movies-christmas
-      - $SHAREDIR/movies-hallmark:/movies-hallmark
-      - $SHAREDIR/movies-horror:/movies-horror
-      #- $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
-      - $SHAREDIR/quarantine:/downloads
+#      - $SHAREDIR/movies:/movies
+#      - $SHAREDIR/movies-anime:/movies-anime
+#      - $SHAREDIR/movies-christmas:/movies-christmas
+#      - $SHAREDIR/movies-hallmark:/movies-hallmark
+#      - $SHAREDIR/movies-horror:/movies-horror
+#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
+#      - $SHAREDIR/quarantine:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -105,8 +105,8 @@ services:
       - $SABDIR/complete:/complete
       - $SABDIR/temp:/temp
       #Delete the following after migration
-  #    - $DOCKERDIR/sabnzbd/sabnzbd_snatch_temp:/incomplete
-   #   - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
+#      - $DOCKERDIR/sabnzbd/sabnzbd_snatch_temp:/incomplete
+#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
     ports:
       - 8383:8080
       - 9191:9090
@@ -124,11 +124,11 @@ services:
       - $SABDIR/incomplete:/incomplete
       - $SABDIR/complete:/complete
       #Delete the following after migration      
-      - $SHAREDIR/tv-series:/tv-series
-      - $SHAREDIR/tv-anime:/tv-anime
-     # - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
-      - $SHAREDIR/quarantine/:/downloads
-      - $SHAREDIR/quarantine/sabnzbd_unzip_temp/:/handbrake
+#      - $SHAREDIR/tv-series:/tv-series
+#      - $SHAREDIR/tv-anime:/tv-anime
+#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
+#      - $SHAREDIR/quarantine/:/downloads
+#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp/:/handbrake
     ports:
       - 8989:8989
     restart: unless-stopped
