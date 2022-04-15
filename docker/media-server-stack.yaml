@@ -21,8 +21,8 @@ services:
     volumes:
       - $DOCKERDIR/handbrake_movies/config:/config:rw
       - $SHAREDIR:/storage:ro 
-      - $SHAREDIR/movies:/movies:rw      
-      - $SHAREDIR/quarantine/USB_Movies:/watch:rw        
+      - $SHAREDIR/quarantine/USB_TV_Series:/tv-series:rw  
+      - $SABDIR/complete/Movies:/watch:rw        
     ports:
       - 5802:5800
     restart: unless-stopped
@@ -48,7 +48,7 @@ services:
       - $DOCKERDIR/handbrake_tv/config:/config:rw
       - $SHAREDIR:/storage:ro 
       - $SHAREDIR/quarantine/USB_TV_Series:/tv-series:rw  
-      - $SHAREDIR/quarantine/sabnzbd_unzip_temp/tv_series_pre_handbrake_temp:/watch:rw        
+      - $SABDIR/complete/TV:/watch:rw        
     ports:
       - 5801:5800
     restart: unless-stopped
