@@ -119,7 +119,7 @@ services:
       - TZ=America/Chicago
     volumes:
       - $DOCKERDIR/sonarr/config:/config
-      - $SABEDIR/incomplete:/incomplete
+      - $SABDIR/incomplete:/incomplete
       - $SABDIR/complete:/complete
       #Delete the following after migration      
       - $SHAREDIR/tv-series:/tv-series
