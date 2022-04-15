@@ -62,7 +62,8 @@ services:
       - TZ=America/Chicago
     volumes:
       - $DOCKERDIR/headphones/config:/config
-      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
+      - $SABDIR/complete:/complete
+      #- $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
       - $SHAREDIR/music:/music
     ports:
       - 8282:8181
@@ -85,7 +86,7 @@ services:
       - $SHAREDIR/movies-christmas:/movies-christmas
       - $SHAREDIR/movies-hallmark:/movies-hallmark
       - $SHAREDIR/movies-horror:/movies-horror
-      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
+      #- $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
       - $SHAREDIR/quarantine:/downloads
     ports:
       - 7878:7878
