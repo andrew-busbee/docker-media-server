@@ -77,6 +77,9 @@ services:
       - TZ=America/Chicago
     volumes:
       - $DOCKERDIR/radarr/config:/config
+      - $SABDIR/incomplete:/incomplete
+      - $SABDIR/complete:/complete
+      #Delete the following after migration
       - $SHAREDIR/movies:/movies
       - $SHAREDIR/movies-anime:/movies-anime
       - $SHAREDIR/movies-christmas:/movies-christmas
@@ -97,6 +100,9 @@ services:
       - TZ=America/Chicago
     volumes:
       - $DOCKERDIR/sabnzbd/config:/config
+      - $SABDIR/incomplete:/incomplete
+      - $SABDIR/complete:/complete
+      #Delete the following after migration
       - $DOCKERDIR/sabnzbd/sabnzbd_snatch_temp:/incomplete
       - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
     ports:
@@ -113,6 +119,9 @@ services:
       - TZ=America/Chicago
     volumes:
       - $DOCKERDIR/sonarr/config:/config
+      - $SABEDIR/incomplete:/incomplete
+      - $SABDIR/complete:/complete
+      #Delete the following after migration      
       - $SHAREDIR/tv-series:/tv-series
       - $SHAREDIR/tv-anime:/tv-anime
       - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
