@@ -79,7 +79,7 @@ services:
     volumes:
       - $DOCKERDIR/radarr/config:/config
       - $USERDIR/downloads/handbrake/movies:/movies   #root directory
-      - $USERDIR/downloads/sabnzbd/sab_complete:/complete    #keep this dir so docker can see the downloads
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete/Movies   #keep this dir so docker can see the downloads
       - $USERDIR/downloads/handbrake/recycle:/recycle/movies   #recycle directory
       #Delete the following after migration
 #      - $SHAREDIR/movies:/movies
