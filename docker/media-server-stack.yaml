@@ -22,7 +22,7 @@ services:
       - $DOCKERDIR/handbrake_movies/config:/config:rw
       - $SHAREDIR:/storage:ro 
       - $SHAREDIR/movies:/movies:rw  
-      - $DOWNLOADDIRR/ready_for_handbrake_movies:/watch:rw        
+      - $USERDIR/ready_for_handbrake_movies:/watch:rw        
     ports:
       - 5802:5800
     restart: unless-stopped
@@ -48,7 +48,7 @@ services:
       - $DOCKERDIR/handbrake_tv/config:/config:rw
       - $SHAREDIR:/storage:ro 
       - $SHAREDIR/quarantine/USB_TV_Series:/tv-series:rw  
-      - $DOWNLOADDIRR/ready_for_handbrake_tv:/watch:rw       
+      - $USERDIR/ready_for_handbrake_tv:/watch:rw       
     ports:
       - 5801:5800
     restart: unless-stopped
@@ -61,8 +61,8 @@ services:
       - PGID=1000
       - TZ=America/Chicago
     volumes:
-      - $DOCKERDIR/headphones/config:/config:rw  
-      - $DOWNLOADDIR/sab_complete:/complete:rw  
+      - $DOCKERDIR/headphones/config:/config 
+      - $USERDIR/downloads/sabnzbd/sab_complete:/sab_complete
 #      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
       - $SHAREDIR/music:/music
     ports:
@@ -77,9 +77,9 @@ services:
       - PGID=1000
       - TZ=America/Chicago
     volumes:
-      - $DOCKERDIR/radarr/config:/config:rw  
-      - $DOWNLOADDIRR/ready_for_handbrake_movies:/complete/handbrake:rw   #root directory
-      - $DOWNLOADDIRR/sab_complete:/complete/sab_complete:rw    #keep this dir so docker can see the downloads
+      - $DOCKERDIR/radarr/config:/config
+      - $USERDIR/downloads/handbrake/movies:/handbrake   #root directory
+      - $USERDIR/downloads/sabnzbd/sab_complete:/sab_complete    #keep this dir so docker can see the downloads
       #Delete the following after migration
 #      - $SHAREDIR/movies:/movies
 #      - $SHAREDIR/movies-anime:/movies-anime
@@ -100,9 +100,9 @@ services:
       - PGID=1000
       - TZ=America/Chicago
     volumes:
-      - $DOCKERDIR/sabnzbd/config:/config:rw  
-      - $DOWNLOADDIR/sab_incomplete:/incomplete:rw  
-      - $DOWNLOADDIRR/sab_complete:/complete:rw  
+      - $DOCKERDIR/sabnzbd/config:/config
+      - $USERDIR/downloads/sabnzbd/sab_incomplete:/incomplete
+      - $USERDIR/downloads/sabnzbd/sab_complete:/sab_complete
 #      - $DOWNLOADDIR/temp:/temp
       #Delete the following after migration
 #      - $DOCKERDIR/sabnzbd/sabnzbd_snatch_temp:/incomplete
@@ -120,9 +120,9 @@ services:
       - PGID=1000
       - TZ=America/Chicago
     volumes:
-      - $DOCKERDIR/sonarr/config:/config:rw  
-      - $DOWNLOADDIRR/ready_for_handbrake_tv:/complete/handbrake:rw   #root dir
-      - $DOWNLOADDIRR/sab_complete:/complete/sab_complete:rw    #keep this dir so docker can see the downloads    
+      - $DOCKERDIR/sonarr/config:/config  
+      - $USERDIR/downloads/handbrake/tv:/handbrake   #root dir
+      - $USERDIR/downloads/sabnzbd/sab_complete:/sab_complete #keep this dir so docker can see the downloads    
 #      - $SHAREDIR/tv-series:/tv-series
 #      - $SHAREDIR/tv-anime:/tv-anime
 #      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
