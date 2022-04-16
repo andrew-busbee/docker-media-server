@@ -80,6 +80,7 @@ services:
       - $DOCKERDIR/radarr/config:/config
       - $USERDIR/downloads/handbrake/movies:/movies   #root directory
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete    #keep this dir so docker can see the downloads
+      - $USERDIR/downloads/handbrake/recycle:/recycle/movies   #recycle directory
       #Delete the following after migration
 #      - $SHAREDIR/movies:/movies
 #      - $SHAREDIR/movies-anime:/movies-anime
@@ -122,7 +123,8 @@ services:
     volumes:
       - $DOCKERDIR/sonarr/config:/config  
       - $USERDIR/downloads/handbrake/tv:/tv   #root dir
-      - $USERDIR/downloads/sabnzbd/sab_complete:/complete #keep this dir so docker can see the downloads    
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete #keep this dir so docker can see the downloads 
+      - $USERDIR/downloads/handbrake/recycle/tv:/recycle   #recycle directory
 #      - $SHAREDIR/tv-series:/tv-series
 #      - $SHAREDIR/tv-anime:/tv-anime
 #      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
