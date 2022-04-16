@@ -62,7 +62,7 @@ services:
       - TZ=America/Chicago
     volumes:
       - $DOCKERDIR/headphones/config:/config 
-      - $USERDIR/downloads/sabnzbd/sab_complete:/sab_complete
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete
 #      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
       - $SHAREDIR/music:/music
     ports:
@@ -79,7 +79,7 @@ services:
     volumes:
       - $DOCKERDIR/radarr/config:/config
       - $USERDIR/downloads/handbrake/movies:/handbrake   #root directory
-      - $USERDIR/downloads/sabnzbd/sab_complete:/sab_complete    #keep this dir so docker can see the downloads
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete    #keep this dir so docker can see the downloads
       #Delete the following after migration
 #      - $SHAREDIR/movies:/movies
 #      - $SHAREDIR/movies-anime:/movies-anime
@@ -102,7 +102,7 @@ services:
     volumes:
       - $DOCKERDIR/sabnzbd/config:/config
       - $USERDIR/downloads/sabnzbd/sab_incomplete:/incomplete
-      - $USERDIR/downloads/sabnzbd/sab_complete:/sab_complete
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete
 #      - $DOWNLOADDIR/temp:/temp
       #Delete the following after migration
 #      - $DOCKERDIR/sabnzbd/sabnzbd_snatch_temp:/incomplete
@@ -122,7 +122,7 @@ services:
     volumes:
       - $DOCKERDIR/sonarr/config:/config  
       - $USERDIR/downloads/handbrake/tv:/handbrake   #root dir
-      - $USERDIR/downloads/sabnzbd/sab_complete:/sab_complete #keep this dir so docker can see the downloads    
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete #keep this dir so docker can see the downloads    
 #      - $SHAREDIR/tv-series:/tv-series
 #      - $SHAREDIR/tv-anime:/tv-anime
 #      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
