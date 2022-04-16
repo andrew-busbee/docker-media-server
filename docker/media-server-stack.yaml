@@ -78,8 +78,8 @@ services:
       - TZ=America/Chicago
     volumes:
       - $DOCKERDIR/radarr/config:/config
-      - $DOWNLOADDIRR/ready_for_handbrake_movies:/handbrake/movies #root directory
-      - $DOWNLOADDIRR/sab_complete:/complete  #keep this dir so docker can see the downloads
+      - $DOWNLOADDIRR/ready_for_handbrake_movies:/complete/handbrake #root directory
+      - $DOWNLOADDIRR/sab_complete:/complete/sab_complete  #keep this dir so docker can see the downloads
       #Delete the following after migration
 #      - $SHAREDIR/movies:/movies
 #      - $SHAREDIR/movies-anime:/movies-anime
@@ -121,8 +121,8 @@ services:
       - TZ=America/Chicago
     volumes:
       - $DOCKERDIR/sonarr/config:/config
-      - $DOWNLOADDIRR/ready_for_handbrake_tv:/handbrake/tv #root dir
-      - $DOWNLOADDIRR/sab_complete:/complete  #keep this dir so docker can see the downloads    
+      - $DOWNLOADDIRR/ready_for_handbrake_tv:/complete/handbrake #root dir
+      - $DOWNLOADDIRR/sab_complete:/complete/sab_complete  #keep this dir so docker can see the downloads    
 #      - $SHAREDIR/tv-series:/tv-series
 #      - $SHAREDIR/tv-anime:/tv-anime
 #      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
