@@ -22,7 +22,7 @@ services:
       - $DOCKERDIR/handbrake_movies/config:/config:rw
       - $SHAREDIR:/storage:ro 
       - $SHAREDIR/movies:/movies:rw  
-      - $USERDIR/ready_for_handbrake_movies:/watch:rw        
+      - $USERDIR/downloads/handbrake/movies:/watch:rw        
     ports:
       - 5802:5800
     restart: unless-stopped
@@ -48,7 +48,7 @@ services:
       - $DOCKERDIR/handbrake_tv/config:/config:rw
       - $SHAREDIR:/storage:ro 
       - $SHAREDIR/quarantine/USB_TV_Series:/tv-series:rw  
-      - $USERDIR/ready_for_handbrake_tv:/watch:rw       
+      - $USERDIR/downloads/handbrake/tv:/watch:rw       
     ports:
       - 5801:5800
     restart: unless-stopped
@@ -63,7 +63,6 @@ services:
     volumes:
       - $DOCKERDIR/headphones/config:/config 
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete
-#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
       - $SHAREDIR/music:/music
     ports:
       - 8282:8181
@@ -80,10 +79,6 @@ services:
       - $DOCKERDIR/sabnzbd/config:/config
       - $USERDIR/downloads/sabnzbd/sab_incomplete:/incomplete
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete
-#      - $DOWNLOADDIR/temp:/temp
-      #Delete the following after migration
-#      - $DOCKERDIR/sabnzbd/sabnzbd_snatch_temp:/incomplete
-#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
     ports:
       - 8383:8080
       - 9191:9090
@@ -99,16 +94,8 @@ services:
     volumes:
       - $DOCKERDIR/radarr/config:/config
       - $USERDIR/downloads/handbrake/movies:/movies   #root directory
-      - $USERDIR/downloads/sabnzbd/sab_complete:/complete   #keep this dir so docker can see the downloads
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete   #keep this dir so container can see the downloads
       - $USERDIR/downloads/handbrake/recycle/movies:/recycle   #recycle directory
-      #Delete the following after migration
-#      - $SHAREDIR/movies:/movies
-#      - $SHAREDIR/movies-anime:/movies-anime
-#      - $SHAREDIR/movies-christmas:/movies-christmas
-#      - $SHAREDIR/movies-hallmark:/movies-hallmark
-#      - $SHAREDIR/movies-horror:/movies-horror
-#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
-#      - $SHAREDIR/quarantine:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -123,20 +110,9 @@ services:
     volumes:
       - $DOCKERDIR/sonarr/config:/config  
       - $USERDIR/downloads/handbrake/tv:/tv   #root dir
-      - $USERDIR/downloads/sabnzbd/sab_complete:/complete #keep this dir so docker can see the downloads 
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete #keep this dir so container can see the downloads 
       - $USERDIR/downloads/handbrake/recycle/tv:/recycle   #recycle directory
-#      - $SHAREDIR/tv-series:/tv-series
-#      - $SHAREDIR/tv-anime:/tv-anime
-#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
-#      - $SHAREDIR/quarantine/:/downloads
-#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp/:/handbrake
     ports:
       - 8989:8989
     restart: unless-stopped
 ###################################################################
-#networks:
-#  default:
-#    driver: bridge
-#    ipam:
-#      config:
-#        - subnet: 192.168.10.0/24
