@@ -69,30 +69,6 @@ services:
       - 8282:8181
     restart: unless-stopped
 ###########################################################
-  radarr:
-    image: ghcr.io/linuxserver/radarr
-    container_name: radarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Chicago
-    volumes:
-      - $DOCKERDIR/radarr/config:/config
-      - $USERDIR/downloads/handbrake/movies:/complete/Movies   #root directory
-      - $USERDIR/downloads/sabnzbd/sab_complete:/complete   #keep this dir so docker can see the downloads
-      - $USERDIR/downloads/handbrake/recycle:/recycle/movies   #recycle directory
-      #Delete the following after migration
-#      - $SHAREDIR/movies:/movies
-#      - $SHAREDIR/movies-anime:/movies-anime
-#      - $SHAREDIR/movies-christmas:/movies-christmas
-#      - $SHAREDIR/movies-hallmark:/movies-hallmark
-#      - $SHAREDIR/movies-horror:/movies-horror
-#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
-#      - $SHAREDIR/quarantine:/downloads
-    ports:
-      - 7878:7878
-    restart: unless-stopped
-################################################################
   sabnzbd:
     image: ghcr.io/linuxserver/sabnzbd
     container_name: sabnzbd
@@ -113,7 +89,31 @@ services:
       - 9191:9090
     restart: unless-stopped
 ###############################################################
-  sonarr:
+  radarr:
+    image: ghcr.io/linuxserver/radarr
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+    volumes:
+      - $DOCKERDIR/radarr/config:/config
+      - $USERDIR/downloads/handbrake/movies:/movies   #root directory
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete   #keep this dir so docker can see the downloads
+      - $USERDIR/downloads/handbrake/recycle/movies:/recycle   #recycle directory
+      #Delete the following after migration
+#      - $SHAREDIR/movies:/movies
+#      - $SHAREDIR/movies-anime:/movies-anime
+#      - $SHAREDIR/movies-christmas:/movies-christmas
+#      - $SHAREDIR/movies-hallmark:/movies-hallmark
+#      - $SHAREDIR/movies-horror:/movies-horror
+#      - $SHAREDIR/quarantine/sabnzbd_unzip_temp:/complete
+#      - $SHAREDIR/quarantine:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+################################################################
+sonarr:
     image: ghcr.io/linuxserver/sonarr
     container_name: sonarr
     environment:
