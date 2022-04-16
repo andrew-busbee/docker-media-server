@@ -78,7 +78,7 @@ services:
       - TZ=America/Chicago
     volumes:
       - $DOCKERDIR/radarr/config:/config
-      - $USERDIR/downloads/handbrake/movies:/handbrake   #root directory
+      - $USERDIR/downloads/handbrake/movies:/movies   #root directory
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete    #keep this dir so docker can see the downloads
       #Delete the following after migration
 #      - $SHAREDIR/movies:/movies
@@ -121,7 +121,7 @@ services:
       - TZ=America/Chicago
     volumes:
       - $DOCKERDIR/sonarr/config:/config  
-      - $USERDIR/downloads/handbrake/tv:/handbrake   #root dir
+      - $USERDIR/downloads/handbrake/tv:/tv   #root dir
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete #keep this dir so docker can see the downloads    
 #      - $SHAREDIR/tv-series:/tv-series
 #      - $SHAREDIR/tv-anime:/tv-anime
