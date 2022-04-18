@@ -70,7 +70,7 @@ services:
       - "$ORINGINALDIR:/photoprism/originals"               # original media files (photos and videos)
       # - "/example/family:/photoprism/originals/family" # *additional* media folders can be mounted like this
       # - "~/Import:/photoprism/import"                  # *optional* base folder from which files can be imported to originals
-      - "$DOCKERDIR/photoprism/data:/photoprism/storage"                  # *writable* storage folder for cache, database, and sidecar files (never remove)
+      - "$DOCKERDIR:/photoprism/storage"                  # *writable* storage folder for cache, database, and sidecar files (never remove)
 
   ## Database Server (recommended)
   ## see https://docs.photoprism.app/getting-started/faq/#should-i-use-sqlite-mariadb-or-mysql
