@@ -51,12 +51,12 @@ services:
       # PHOTOPRISM_FFMPEG_ENCODER: "h264_v4l2m2m"    # use Video4Linux for AVC transcoding (default: libx264)
       # PHOTOPRISM_FFMPEG_ENCODER: "h264_qsv"        # use Intel Quick Sync Video for AVC transcoding (default: libx264)
       ## Run as a specific user, group, or with a custom umask (does not work together with "user:")
-      # PHOTOPRISM_UID: 1000
-      # PHOTOPRISM_GID: 1000
+      PHOTOPRISM_UID: 1000
+      PHOTOPRISM_GID: 1000
       # PHOTOPRISM_UMASK: 0000
       HOME: "/"
     ## Start as a non-root user (see https://docs.docker.com/engine/reference/run/#user)
-    user: "1000:1000"
+    # user: "1000:1000"
     ## Share hardware devices with FFmpeg and TensorFlow (optional):
     # devices:
     #  - "/dev/dri:/dev/dri"
