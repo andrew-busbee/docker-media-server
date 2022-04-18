@@ -52,8 +52,8 @@ services:
     ports:
       - "2342:2342" # HTTP port (host:container)
     environment:
-      PHOTOPRISM_ADMIN_PASSWORD: "insecure"          # !!! PLEASE CHANGE YOUR INITIAL "admin" PASSWORD !!!
-      PHOTOPRISM_SITE_URL: "http://localhost:2342/"  # public server URL incl http:// or https:// and /path, :port is optional
+      PHOTOPRISM_ADMIN_PASSWORD: "$INITIALADMINPASS"          # !!! PLEASE CHANGE YOUR INITIAL "admin" PASSWORD !!!
+      PHOTOPRISM_SITE_URL: "http://10.0.0.8:2342/"  # public server URL incl http:// or https:// and /path, :port is optional
       PHOTOPRISM_ORIGINALS_LIMIT: 5000               # file size limit for originals in MB (increase for high-res video)
       PHOTOPRISM_HTTP_COMPRESSION: "gzip"            # improves transfer speed and bandwidth utilization (none or gzip)
       PHOTOPRISM_DEBUG: "false"                      # run in debug mode (shows additional log messages)
@@ -73,9 +73,9 @@ services:
       PHOTOPRISM_DATABASE_DRIVER: "mysql"            # use MariaDB 10.5+ or MySQL 8+ instead of SQLite for improved performance
       PHOTOPRISM_DATABASE_SERVER: "mariadb:3306"     # MariaDB or MySQL database server (hostname:port)
       PHOTOPRISM_DATABASE_NAME: "photoprism"         # MariaDB or MySQL database schema name
-      PHOTOPRISM_DATABASE_USER: "photoprism"         # MariaDB or MySQL database user name
-      PHOTOPRISM_DATABASE_PASSWORD: "insecure"       # MariaDB or MySQL database user password
-      PHOTOPRISM_SITE_TITLE: "PhotoPrism"
+      PHOTOPRISM_DATABASE_USER: "$MYSQLUSER"         # MariaDB or MySQL database user name
+      PHOTOPRISM_DATABASE_PASSWORD: "$MYSQLPASS"       # MariaDB or MySQL database user password
+      PHOTOPRISM_SITE_TITLE: "Busbee Photos"
       PHOTOPRISM_SITE_CAPTION: "AI-Powered Photos App"
       PHOTOPRISM_SITE_DESCRIPTION: ""
       PHOTOPRISM_SITE_AUTHOR: ""
@@ -90,9 +90,9 @@ services:
       # PHOTOPRISM_UID: 1000
       # PHOTOPRISM_GID: 1000
       # PHOTOPRISM_UMASK: 0000
-      HOME: "/photoprism"
+      HOME: "/"
     ## Start as a non-root user (see https://docs.docker.com/engine/reference/run/#user)
-    # user: "1000:1000"
+    user: "1000:1000"
     ## Share hardware devices with FFmpeg and TensorFlow (optional):
     # devices:
     #  - "/dev/dri:/dev/dri"
@@ -103,10 +103,10 @@ services:
     ## Storage Folders: "~" is a shortcut for your home directory, "." for the current directory
     volumes:
       # "/host/folder:/photoprism/folder"                # example
-      - "~/Pictures:/photoprism/originals"               # original media files (photos and videos)
+      - "$ORINGINALDIR:/photoprism/originals"               # original media files (photos and videos)
       # - "/example/family:/photoprism/originals/family" # *additional* media folders can be mounted like this
       # - "~/Import:/photoprism/import"                  # *optional* base folder from which files can be imported to originals
-      - "./storage:/photoprism/storage"                  # *writable* storage folder for cache, database, and sidecar files (never remove)
+      - "$DOCKERDIR/photoprism/data:/photoprism/storage"                  # *writable* storage folder for cache, database, and sidecar files (never remove)
 
   ## Database Server (recommended)
   ## see https://docs.photoprism.app/getting-started/faq/#should-i-use-sqlite-mariadb-or-mysql
@@ -123,10 +123,10 @@ services:
     volumes:
       - "./database:/var/lib/mysql" # important, don't remove
     environment:
-      MYSQL_ROOT_PASSWORD: insecure
+      MYSQL_ROOT_PASSWORD: $MYSQLROOTPASS
       MYSQL_DATABASE: photoprism
-      MYSQL_USER: photoprism
-      MYSQL_PASSWORD: insecure
+      MYSQL_USER: $MYSQLUSER
+      MYSQL_PASSWORD: $MYSQLPASS
 
   ## Watchtower upgrades services automatically (optional)
   ## see https://docs.photoprism.app/getting-started/updates/#watchtower
