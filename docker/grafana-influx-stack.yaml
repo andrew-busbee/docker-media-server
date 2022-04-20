@@ -34,15 +34,16 @@ services:
     container_name: grafana
     ports:
       - '3000:3000'
-    user: '104'
+    user: '472'
+    group: '0'
     volumes:
       - $GRAFANA_STORAGE:/var/lib/grafana
       - $GRAFANA_PROVISIONING:/etc/grafana/provisioning
     depends_on:
       - influxdb
     environment:
-      - PUID=1000
-      - PGID=1000
+      #- PUID=1000
+      #- PGID=1000
       - GF_SECURITY_ADMIN_USER=$GRAFANA_USERNAME
       - GF_SECURITY_ADMIN_PASSWORD=$GRAFANA_PASSWORD
 #volumes:
