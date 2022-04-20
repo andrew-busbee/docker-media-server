@@ -35,7 +35,7 @@ services:
     ports:
       - '3000:3000'
     user: '472'
-    group: '0'
+   # group: '0'
     volumes:
       - $GRAFANA_STORAGE:/var/lib/grafana
       - $GRAFANA_PROVISIONING:/etc/grafana/provisioning
