@@ -2,16 +2,20 @@ version: '2'
 services:
   influxdb:
     image: influxdb:latest
+    container_name: influxdb
     ports:
       - '8086:8086'
     volumes:
       - $INFLUXDB_STORAGE:/var/lib/influxdb
     environment:
+      - PUID=1000
+      - PGID=1000
       - INFLUXDB_DB=db0
       - INFLUXDB_ADMIN_USER=$INFLUXDB_USERNAME
       - INFLUXDB_ADMIN_PASSWORD=$INFLUXDB_PASSWORD
   chronograf:
     image: chronograf:latest
+    container_name: chronograf
     ports:
       #- '127.0.0.1:8888:8888'
       - '8888:8888'
@@ -20,11 +24,14 @@ services:
     depends_on:
       - influxdb
     environment:
+      - PUID=1000
+      - PGID=1000
       - INFLUXDB_URL=http://influxdb:8086
       - INFLUXDB_USERNAME=$INFLUXDB_USERNAME
       - INFLUXDB_PASSWORD=$INFLUXDB_PASSWORD
   grafana:
     image: grafana/grafana:latest
+    container_name: grafana
     ports:
       - '3000:3000'
     volumes:
@@ -33,6 +40,8 @@ services:
     depends_on:
       - influxdb
     environment:
+      - PUID=1000
+      - PGID=1000
       - GF_SECURITY_ADMIN_USER=$GRAFANA_USERNAME
       - GF_SECURITY_ADMIN_PASSWORD=$GRAFANA_PASSWORD
 #volumes:
