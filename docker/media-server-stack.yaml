@@ -23,8 +23,8 @@ services:
       - $SHAREDIR:/storage:ro 
       - $SHAREDIR/movies:/movies:rw  
       - $USERDIR/downloads/handbrake/movies:/watch:rw        
-    #ports:
-    #  - 5802:5800
+    ports:
+      - 5802:5800
     restart: unless-stopped
 ###################################################################
   handbraketv:
@@ -49,8 +49,8 @@ services:
       - $SHAREDIR:/storage:ro 
       - $SHAREDIR/tv-series-continuing:/tv-series:rw  
       - $USERDIR/downloads/handbrake/tv:/watch:rw       
-    #ports:
-    #  - 5801:5800
+    ports:
+      - 5801:5800
     restart: unless-stopped
 #################################################################
   headphones:
@@ -64,8 +64,8 @@ services:
       - $DOCKERDIR/headphones/config:/config 
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete
       - $SHAREDIR/music:/music
-    #ports:
-    #  - 8282:8181
+    ports:
+      - 8282:8181
     restart: unless-stopped
 ###########################################################
   sabnzbd:
@@ -79,9 +79,9 @@ services:
       - $DOCKERDIR/sabnzbd/config:/config
       - $USERDIR/downloads/sabnzbd/sab_incomplete:/incomplete
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete
-    #ports:
-    #  - 8383:8080
-    #  - 9191:9090
+    ports:
+      - 8383:8080
+      - 9191:9090
     restart: unless-stopped
 ###############################################################
   radarr:
@@ -96,8 +96,8 @@ services:
       - $USERDIR/downloads/handbrake/movies:/movies   #root directory
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete   #keep this dir so container can see the downloads
       - $USERDIR/downloads/handbrake/recycle/movies:/recycle   #recycle directory
-    #ports:
-    #  - 7878:7878
+    ports:
+      - 7878:7878
     restart: unless-stopped
 ################################################################
   sonarr:
@@ -112,7 +112,7 @@ services:
       - $USERDIR/downloads/handbrake/tv:/tv   #root dir
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete #keep this dir so container can see the downloads 
       - $USERDIR/downloads/handbrake/recycle/tv:/recycle   #recycle directory
-    #ports:
-    #  - 8989:8989
+    ports:
+      - 8989:8989
     restart: unless-stopped
 ###################################################################
