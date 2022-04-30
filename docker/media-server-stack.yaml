@@ -47,7 +47,7 @@ services:
     volumes:
       - $DOCKERDIR/handbrake_tv/config:/config:rw
       - $SHAREDIR:/storage:ro 
-      - $SHAREDIR/tv-series-continuing:/tv-series:rw  
+      - $SHAREDIR/tvSeriesContinuing:/tv-series:rw  
       - $USERDIR/downloads/handbrake/tv:/watch:rw       
     ports:
       - 5801:5800
