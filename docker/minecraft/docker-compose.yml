@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    ports:
+      - $PORTS
+    environment:
+      EULA: "TRUE"
+      SERVER_NAME: $SERVERNAME
+      MOTD: $MOTD
+      DIFFICULTY: $DIFFICULTY
+      VERSION: $VERSION
+      # https://github.com/itzg/docker-minecraft-server#memory-limit
+      MEMORY: $MEMORY
+      MODE: $MODE
+      MAX_PLAYERS: $MAXPLAYERS
+      ALLOW_NETHER: $ALLOWNETHER
+      ANNOUNCE_PLAYER_ACHIEVEMENTS: $ANNOUNCEPLAYERACHIEVEMENTS
+      SNOOPER-ENABLED: "false"
+      PUBLIC: $PUBLIC
+      # uncomment this to import a saved game. (put your savegame directory in the saves-to-import directory)
+      #WORLD: $WORLD
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - $PATH/minecraft-data:/data
+      - $PATH/minecraft/saves-to-import:/worlds:ro
