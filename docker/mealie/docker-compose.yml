@@ -1,0 +1,30 @@
+version: "3"
+services:
+  mealie:
+    container_name: www-mealie
+    image: hkotel/mealie:latest
+    restart: always
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      TZ: America/Chicago
+      # Default Recipe Settings
+      RECIPE_PUBLIC: 'true'
+      RECIPE_SHOW_NUTRITION: 'false'
+      RECIPE_SHOW_ASSETS: 'true'
+      RECIPE_LANDSCAPE_VIEW: 'true'
+      RECIPE_DISABLE_COMMENTS: 'true'
+      RECIPE_DISABLE_AMOUNT: 'false'
+    networks:
+      - www 
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=www      
+      - traefik.http.routers.mealie.entrypoints=web, websecure
+      - traefik.http.routers.mealie.rule=Host(`$URL`)
+      - traefik.http.routers.mealie.tls=true
+    volumes:
+      - $PATH/docker/mealie/config:/app/data
+networks:
+  www:
+    external: true   
