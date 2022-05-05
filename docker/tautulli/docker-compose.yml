@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+  tautulli:
+    image: ghcr.io/linuxserver/tautulli
+    container_name: www-tautulli
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=America/Chicago
+    volumes:
+      - $PATH/docker/tautulli/config:/config
+    networks:
+      - www
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=www
+      - traefik.http.routers.tautulli.entrypoints=web, websecure
+      - traefik.http.routers.tautulli.rule=Host(`$URL`)
+      - traefik.http.routers.tautulli.tls=true
+networks:
+  www:
+    external: true
