@@ -1,0 +1,33 @@
+version: "3"
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: www-navidrome
+    user: $UID:$GID 
+    networks:
+      - www 
+    restart: unless-stopped
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info  
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ""
+      ND_UIWELCOMEMESSAGE: "Welcome to our music library!"
+      #OPTIONAL
+      ND_LASTFM_APIKEY: "ApiKey" #Last.fm ApiKey
+      ND_LASTFM_SECRET: "Shared_Secret" #Last.fm Shared Secret
+      ND_SPOTIFY_ID: "Client_ID" #Spotify Client ID. Required if you want Artist images
+      ND_SPOTIFY_SECRET: "Client_Secret" #Spotify Client Secret. Required if you want Artist images
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=www
+      - traefik.http.routers.navidrome.rule=Host(`$URL`)
+      - traefik.http.routers.navidrome.entrypoints=web, websecure
+      - traefik.http.routers.navidrome.tls=true
+    volumes:
+      - "$PATH/docker/navidrome/config:/data"
+      - "/mnt/music:/music:ro"
+networks:
+  www:
+    external: true
