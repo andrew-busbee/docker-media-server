@@ -1,0 +1,18 @@
+---
+version: '3.1'
+services:
+  radarr:
+    image: ghcr.io/linuxserver/radarr
+    container_name: radarr
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=America/Chicago
+    volumes:
+      - $DOCKERDIR/radarr/config:/config
+      - $USERDIR/downloads/handbrake/movies:/movies   #root directory
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete   #keep this dir so container can see the downloads
+      - $USERDIR/downloads/handbrake/recycle/movies:/recycle   #recycle directory
+    ports:
+      - 7878:7878
+    restart: unless-stopped
