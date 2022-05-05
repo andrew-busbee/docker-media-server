@@ -1,0 +1,17 @@
+---
+version: '3.1'
+services:
+  headphones:
+    image: ghcr.io/linuxserver/headphones
+    container_name: headphones
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=America/Chicago
+    volumes:
+      - $DOCKERDIR/headphones/config:/config 
+      - $USERDIR/downloads/sabnzbd/sab_complete:/complete
+      - $SHAREDIR/music:/music
+    ports:
+      - 8282:8181
+    restart: unless-stopped
