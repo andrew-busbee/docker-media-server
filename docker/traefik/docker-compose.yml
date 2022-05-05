@@ -16,9 +16,9 @@ services:
 
     volumes:
       - $PATH/docker/traefik:/etc/traefik
-      - $PATH/docker/traefik/dynamic:/etc/traefik/dynamic
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - $PATH/docker/traefik/logs:/var/log/traefik/
+      - $PATH/docker/traefik/certs:/etc/certs
 networks:
   www:
     external: true
