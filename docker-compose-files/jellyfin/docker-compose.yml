@@ -1,0 +1,28 @@
+---
+version: "2.1"
+services:
+  jellyfin:
+    image: ghcr.io/linuxserver/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=America/Chicago
+      - JELLYFIN_PublishedServerUrl=$URL #optional
+    volumes:
+      - $DOCKERDIR/jellyfin/config:/config
+      - /mnt/media:/data/media
+#      - /opt/vc/lib:/opt/vc/lib #Optional - Path for Raspberry Pi OpenMAX libs.
+    ports:
+      - 8096:8096
+#      - 8920:8920 #Optional - Https webUI 
+#      - 7359:7359/udp #Optional - Allows clients to discover Jellyfin on the local network.
+#      - 1900:1900/udp #Optional - Service discovery used by DNLA and clients.
+    devices:
+      - /dev/dri:/dev/dri #Optional - Only needed if you want to use your Intel GPU for hardware accelerated video encoding (vaapi).
+#      - /dev/vcsm:/dev/vcsm #optional
+#      - /dev/vchiq:/dev/vchiq #optional
+#      - /dev/video10:/dev/video10 #optional
+#      - /dev/video11:/dev/video11 #optional
+#      - /dev/video12:/dev/video12 #optional
+    restart: unless-stopped
