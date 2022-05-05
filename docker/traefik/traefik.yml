@@ -1,0 +1,116 @@
+# Connects to the traefik pilot service
+pilot:
+    token: "KEY_FROM_TRAEFIK_GOES_HERE"
+
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false  # true by default
+
+# (Optional) Log information
+# ---
+log:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+#   format: common  # common, json, logfmt
+#   filePath: /var/log/traefik/traefik.log
+
+# (Optional) Accesslog
+# ---
+accesslog:
+  format: common  # common, json, logfmt
+  filePath: /var/log/traefik/access.log
+
+# (Optional) Enable API and Dashboard
+# ---
+api:
+  dashboard: true  # true by default
+  insecure: true  # Don't do this in production!
+
+# Metrics 
+metrics:
+  prometheus:
+    buckets:
+      - 0.1
+      - 0.3
+      - 1.2
+      - 5.0
+    # Enable metrics on entry points.
+    addEntryPointsLabels: true
+    # Enable metrics on routers.
+    addRoutersLabels: true
+    # Enable metrics on services.
+    addServicesLabels: true
+    # Define entrypoint
+    entryPoint: metrics
+
+# Entry Points configuration
+# ---
+entryPoints:
+  metrics:
+    address: :8082
+  web:
+    address: :80
+    # (Optional) Redirect to HTTPS
+    # ---
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  #Cloudflare IPs
+  websecure:
+    address: :443
+    forwardedHeaders:
+      trustedIPs:
+        - "173.245.48.0/20"
+        - "103.21.244.0/22"
+        - "103.22.200.0/22"
+        - "103.31.4.0/22"
+        - "141.101.64.0/18"
+        - "108.162.192.0/18"
+        - "190.93.240.0/20"
+        - "188.114.96.0/20"
+        - "197.234.240.0/22"
+        - "198.41.128.0/17"
+        - "162.158.0.0/15"
+        - "104.16.0.0/12"
+        - "172.64.0.0/13"
+        - "131.0.72.0/22"
+
+# Configure your CertificateResolver here...
+# ---
+#if using this, see the video for labels to us.  Right now cloudflare is used instead for SSL
+#certificatesResolvers:
+#   staging:
+#     acme:
+#       email: andrew.busbee@gmail.com
+#       storage: $PATH/docker/traefik/certs/acme.json
+#       caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+#       httpChallenge:
+#         entryPoint: web
+
+#   production:
+#     acme:
+#       email: andrew.busbee@gmail.com
+#       storage: $PATH/docker/traefik/certs/acme.json
+#       caServer: "https://acme-v02.api.letsencrypt.org/directory"
+#       httpChallenge:
+#         entryPoint: web
+
+# (Optional) Overwrite Default Certificates
+tls:
+#   stores:
+#     default:
+#       defaultCertificate:
+#         certFile: $PATH/docker/traefik/certs/cert.pem
+#         keyFile: $PATH/docker/traefik/certs/cert-key.pem
+# (Optional) Disable TLS version 1.0 and 1.1
+   options:
+     default:
+       minVersion: VersionTLS12
+providers:
+  docker:
+    exposedByDefault: false  # Default is true
+  file:
+    # watch for dynamic configuration changes
+    directory: $PATH/docker/traefik/dynamic
+    watch: true
