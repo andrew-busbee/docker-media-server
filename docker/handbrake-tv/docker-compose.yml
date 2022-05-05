@@ -1,0 +1,28 @@
+---
+version: '3.1'
+services:
+  handbraketv:
+    image: jlesage/handbrake
+#    cpus: 3.9
+    container_name: handbrake_tv
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=America/Chicago
+      - KEEP_APP_RUNNING=1
+      - CLEAN_TMP_DIR=1
+      - AUTOMATED_CONVERSION_PRESET=Custom/720p30v2 #720p30 is Fast 720P and 720p30v2 is very fast 720P.  Both are same with aduio.
+      - AUTOMATED_CONVERSION_KEEP_SOURCE=0 #1 keeps source, 0 deletes after sucessful conversion
+      - AUTOMATED_CONVERSION_FORMAT=mp4
+      - AUTOMATED_CONVERSION_SOURCE_STABLE_TIME=90 #seconds to be stable before converting to make sure it is not being copied
+      - AUTOMATED_CONVERSION_OUTPUT_DIR=/tv-series
+      - AUTOMATED_CONVERSION_OUTPUT_SUBDIR=SAME_AS_SRC
+      - AUTOMATED_CONVERSION_OVERWRITE_OUTPUT=1 #Overwrite file in destination = 1, Do Not overwrite = 0
+    volumes:
+      - $DOCKERDIR/handbrake_tv/config:/config:rw
+      - $SHAREDIR:/storage:ro 
+      - $SHAREDIR/tvSeriesContinuing:/tv-series:rw  
+      - $USERDIR/downloads/handbrake/tv:/watch:rw       
+    ports:
+      - 5801:5800
+    restart: unless-stopped
