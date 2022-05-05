@@ -1,0 +1,20 @@
+---
+version: "2.1"
+services:
+  emulatorjs:
+    image: lscr.io/linuxserver/emulatorjs
+    container_name: emulatorjs
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=America/Chicago
+    volumes:
+      - $PATH/docker/emulator/config:/config
+      - $PATH/docker/emulator/data:/data
+    ports:
+      - 3000:3000
+      - 8004:80
+      - 4001:4001 #optional
+    restart: unless-stopped
+    labels:
+      - autoheal=true    
