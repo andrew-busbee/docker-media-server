@@ -1,0 +1,22 @@
+version: "3"
+services:
+  homer:
+    image: b4bz/homer
+    container_name: www-homer
+    volumes:
+      - $PATH/docker/homer/data:/www/assets
+    networks:
+      - www 
+    environment:
+      - UID=$UID
+      - GID=$GID
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=www
+      - traefik.http.routers.homer.entrypoints=web, websecure
+      - traefik.http.routers.homer.rule=Host(`$WWWDOMAIN`,`$DOMAIN`)
+      - traefik.http.routers.homer.tls=true
+networks:
+  www:
+    external: true
