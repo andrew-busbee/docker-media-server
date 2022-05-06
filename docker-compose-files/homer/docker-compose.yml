@@ -4,7 +4,7 @@ services:
     image: b4bz/homer
     container_name: www-homer
     volumes:
-      - $PATH/docker/homer/data:/www/assets
+      - /mnt/local/docker/homer/data:/www/assets
     networks:
       - www 
     environment:
