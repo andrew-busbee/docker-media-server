@@ -17,7 +17,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=www
       - traefik.http.routers.$ROUTER.entrypoints=web, websecure
-      - traefik.http.routers.$ROUTER.rule=Host(`$WWWDOMAIN`,`$DOMAIN`)
+      - traefik.http.routers.$ROUTER.rule=Host(`$URL1`,`$URL2`)
       - traefik.http.routers.$ROUTER.tls=true
 networks:
   www:
