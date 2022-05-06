@@ -6,5 +6,5 @@ services:
     environment:
       - TZ=America/Chicago
     volumes:
-      - $PATH/docker/plex-meta-manager/config:/config
+      - ${PATH}/docker/plex-meta-manager/config:/config
     restart: unless-stopped
