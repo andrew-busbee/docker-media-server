@@ -13,12 +13,22 @@ services:
       - "443:443"
       # (Optional) Expose Dashboard
       - "8080:8080"  # Don't do this in production!
-
     volumes:
-      - $PATH/docker/traefik:/etc/traefik
+      - /mnt/local/docker/traefik:/etc/traefik
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - $PATH/docker/traefik/logs:/var/log/traefik/
-      - $PATH/docker/traefik/certs:/etc/certs
+      - /mnt/local/docker/traefik/logs:/var/log/traefik/
+      - /mnt/local/docker/traefik/certs:/etc/certs
+    #command:
+      #The command below will  ensures that the IP addresses of the clients are forwarded to your server. When you check the logs, you will see the client's IP. Without this setting, all requests will appear as if they are originating from Cloudflare's servers.
+      #- --entrypoints.https.forwardedHeaders.trustedIPs=173.245.48.0/20,103.21.244.0/22,103.22.200.0/22,103.31.4.0/22,141.101.64.0/18,108.162.192.0/18,190.93.240.0/20,188.114.96.0/20,197.234.240.0/22,198.41.128.0/17,162.158.0.0/15,104.16.0.0/12,172.64.0.0/13,131.0.72.0/22
+    #enable below to allow the container name to be used as the subdomain name!  Need to figure out how to do it for multiple domains first :(
+    #  - --providers.docker.defaultRule=Host(`{{ normalize .Name }}.example.com`)
+    #healthcheck:
+    #  test: exit 1 || curl --fail http://localhost:8080 #|| wget --no-verbose --tries=1 --spider http://localhost
+    #  interval: 60s
+    #  retries: 3
+    #  start_period: 20s
+    #  timeout: 10s
 networks:
   www:
     external: true
