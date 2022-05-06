@@ -3,7 +3,7 @@ version: "3"
 services:
   bookstack:
     image: lscr.io/linuxserver/bookstack
-    container_name: www-bookstack
+    container_name: bookstack
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -28,7 +28,7 @@ services:
       - bookstack_db
   bookstack_db:
     image: lscr.io/linuxserver/mariadb
-    container_name: www-bookstack_db
+    container_name: bookstack_db
     networks:
       - backend 
     environment:
