@@ -6,6 +6,7 @@ services:
     restart: always
     environment:
       - WEBSOCKET_ENABLED=true
+      - LOG_LEVEL=debug
       #- SIGNUPS_ALLOWED=false
       #- DOMAIN=$DOMAIN
       #- SMTP_HOST=$SMTP
