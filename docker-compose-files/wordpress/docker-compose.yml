@@ -2,17 +2,17 @@ version: "3.9"
 services:
   db:
     image: mysql:5.7
-    container_name: $MYSQLCONTAINERNAME
+    container_name: ${MYSQLCONTAINERNAME}
     networks:
       - backend 
     volumes:
-      - $WEBSITEDIR/mysql:/var/lib/mysql
+      - ${WEBSITEDIR}/mysql:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: $MYSQLROOTPASSWORD
-      MYSQL_DATABASE: $MYSQLDATABASE
-      MYSQL_USER: $MYSQLUSER
-      MYSQL_PASSWORD: $MYSQLPASSWORD
+      MYSQL_ROOT_PASSWORD: ${MYSQLROOTPASSWORD}
+      MYSQL_DATABASE: ${MYSQLDATABASE}
+      MYSQL_USER: ${MYSQLUSER}
+      MYSQL_PASSWORD: ${MYSQLPASSWORD}
   wordpress:
     depends_on:
       - db
@@ -20,21 +20,21 @@ services:
     networks:
       - www
       - backend
-    container_name: $WORDPRESSCONTAINERNAME
+    container_name: ${WORDPRESSCONTAINERNAME}
     volumes:
-      - $WEBSITEDIR/wordpress:/var/www/html
+      - ${WEBSITEDIR}/wordpress:/var/www/html
     restart: always
     labels:
       - traefik.enable=true
       - traefik.docker.network=www
-      - traefik.http.routers.$ROUTERNAME.rule=Host(`$URL1`,`$URL2`,`$URL3`,`$URL4`) # Can use same URL for each if using fewer than 4
+      - traefik.http.routers.$ROUTERNAME.rule=Host(`${URL1}`,`${URL2}`,`${URL3}`,`${URL4}`) # Can use same URL for each if using fewer than 4
       - traefik.http.routers.$ROUTERNAME.entrypoints=web, websecure
       - traefik.http.routers.$ROUTERNAME.tls=true
     environment:
       WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: $MYSQLUSER
-      WORDPRESS_DB_PASSWORD: $MYSQLPASSWORD
-      WORDPRESS_DB_NAME: $MYSQLDATABASE
+      WORDPRESS_DB_USER: ${MYSQLUSER}
+      WORDPRESS_DB_PASSWORD: ${MYSQLPASSWORD}
+      WORDPRESS_DB_NAME: ${MYSQLDATABASE}
 networks:
   www:
     external: true 
