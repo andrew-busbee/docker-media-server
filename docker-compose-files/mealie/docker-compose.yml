@@ -1,7 +1,7 @@
 version: "3"
 services:
   mealie:
-    container_name: www-mealie
+    container_name: mealie
     image: hkotel/mealie:latest
     restart: always
     environment:
