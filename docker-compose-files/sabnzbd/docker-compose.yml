@@ -13,6 +13,6 @@ services:
       - $USERDIR/downloads/sabnzbd/sab_incomplete:/incomplete
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete
     ports:
-      - 8383:8080
-      - 9191:9090
+      - $PORTS1
+      - $PORTS2
     restart: unless-stopped
