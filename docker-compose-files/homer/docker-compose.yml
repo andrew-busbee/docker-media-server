@@ -4,7 +4,7 @@ version: "3"
 services:
   homer:
     image: b4bz/homer
-    container_name: www-homer
+    container_name: homer
     volumes:
       - /mnt/local/docker/homer/data:/www/assets
     networks:
