@@ -2,7 +2,7 @@ version: '3'
 services:
   vaultwarden:
     image: vaultwarden/server:latest
-    container_name: secure-vaultwarden
+    container_name: vaultwarden
     restart: always
     environment:
       - WEBSOCKET_ENABLED=true
