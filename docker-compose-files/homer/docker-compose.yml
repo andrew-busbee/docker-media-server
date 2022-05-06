@@ -2,9 +2,9 @@ version: "3"
 services:
   homer:
     image: b4bz/homer
-    container_name: www-homer
+    container_name: $CONTAINER
     volumes:
-      - /mnt/local/docker/homer/data:/www/assets
+      - /mnt/local/docker/$DIRECTORY/data:/www/assets
     networks:
       - www 
     environment:
@@ -14,9 +14,9 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=www
-      - traefik.http.routers.homer.entrypoints=web, websecure
-      - traefik.http.routers.homer.rule=Host(`$WWWDOMAIN`,`$DOMAIN`)
-      - traefik.http.routers.homer.tls=true
+      - traefik.http.routers.$ROUTER.entrypoints=web, websecure
+      - traefik.http.routers.$ROUTER.rule=Host(`$WWWDOMAIN`,`$DOMAIN`)
+      - traefik.http.routers.$ROUTER.tls=true
 networks:
   www:
     external: true
