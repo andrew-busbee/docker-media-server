@@ -5,23 +5,21 @@ services:
     image: lscr.io/linuxserver/bookstack
     container_name: www-bookstack
     environment:
-      - PUID=$BOOKSTACKPUID
-      - PGID=$BOOKSTACKPGID
-      - APP_URL=$BOOKSTACKHTTPS_URL # https://whatever.yourdomain.com
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - APP_URL=${HTTPS_URL} # https://whatever.yourdomain.com
       - DB_HOST=bookstack_db
       - DB_USER=bookstack
-      - DB_PASS=$BOOKSTACKDB_PASS
+      - DB_PASS=${DB_PASS}
       - DB_DATABASE=bookstackapp
     volumes:
       - /mnt/local/docker/bookstack/config:/config
     labels:
       - traefik.enable=true
       - traefik.docker.network=www
-      - traefik.http.routers.bookstack.rule=Host(`$BOOKSTACKURL`)  # whatever.yourdomain.com
+      - traefik.http.routers.bookstack.rule=Host(`${URL}`)  # whatever.yourdomain.com
       - traefik.http.routers.bookstack.entrypoints=web, websecure
       - traefik.http.routers.bookstack.tls=true
-    env_file:
-      - /mnt/local/env_file/stack.env
     networks:
       - www
       - backend
@@ -33,16 +31,14 @@ services:
     container_name: www-bookstack_db
     networks:
       - backend 
-    env_file:
-      - /mnt/local/env_file/stack.env
     environment:
-      - PUID=$BOOKSTACKPUID
-      - PGID=$BOOKSTACKPGID
-      - MYSQL_ROOT_PASSWORD=$BOOKSTACKROOT_PASS
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - MYSQL_ROOT_PASSWORD=${ROOT_PASS}
       - TZ=America/Chicago
       - MYSQL_DATABASE=bookstackapp
       - MYSQL_USER=bookstack_user
-      - MYSQL_PASSWORD=$BOOKSTACKDB_PASS
+      - MYSQL_PASSWORD=${DB_PASS}
     volumes:
       - /mnt/local/docker/bookstack/bookstackdb:/config
     restart: unless-stopped
