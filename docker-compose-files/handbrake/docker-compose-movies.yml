@@ -1,0 +1,28 @@
+---
+version: '3.1'
+services:
+  handbrakevmovies:
+    image: jlesage/handbrake
+#    cpus: 3.9
+    container_name: handbrake_movies
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=America/Chicago
+      - KEEP_APP_RUNNING=1
+      - CLEAN_TMP_DIR=1
+      #Movie Preset
+      - AUTOMATED_CONVERSION_PRESET=Custom/1080p30Stereo #1080p30 is Fast 1080P 1080p30Stereo is Fast 1080P in Stero and 1080p30v2 is very fast 1080P.  Others are 5.1 Audio.
+      - AUTOMATED_CONVERSION_KEEP_SOURCE=0 #1 keeps source, 0 deletes after sucessful conversion
+      - AUTOMATED_CONVERSION_FORMAT=mp4
+      - AUTOMATED_CONVERSION_SOURCE_STABLE_TIME=90 #seconds to be stable before converting to make sure it is not being copied
+      - AUTOMATED_CONVERSION_OUTPUT_DIR=/movies
+      - AUTOMATED_CONVERSION_OUTPUT_SUBDIR=SAME_AS_SRC
+    volumes:
+      - ${DOCKERDIR}/handbrake_movies/config:/config:rw
+      #- $SHAREDIR:/storage:ro 
+      - /mnt/media/movies:/movies:rw  
+      - ${USERDIR}/downloads/handbrake/movies:/watch:rw        
+    ports:
+      - ${PORTS}
+    restart: unless-stopped
