@@ -5,8 +5,8 @@ services:
     image: hkotel/mealie:latest
     restart: always
     environment:
-      PUID: $PUID
-      PGID: $PGID
+      PUID: ${PUID}
+      PGID: ${PGID}
       TZ: America/Chicago
       # Default Recipe Settings
       RECIPE_PUBLIC: 'true'
@@ -21,7 +21,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=www      
       - traefik.http.routers.mealie.entrypoints=web, websecure
-      - traefik.http.routers.mealie.rule=Host(`$URL`)
+      - traefik.http.routers.mealie.rule=Host(`${URL}`)
       - traefik.http.routers.mealie.tls=true
     volumes:
       - /mnt/local/docker/mealie/config:/app/data
