@@ -21,8 +21,8 @@ services:
     volumes:
       - $DOCKERDIR/handbrake_movies/config:/config:rw
       #- $SHAREDIR:/storage:ro 
-      - $SHAREDIR/movies:/movies:rw  
+      - /mnt/media/movies:/movies:rw  
       - $USERDIR/downloads/handbrake/movies:/watch:rw        
     ports:
-      - 5802:5800
+      - $PORTS
     restart: unless-stopped
