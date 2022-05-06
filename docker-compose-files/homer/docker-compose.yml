@@ -8,7 +8,7 @@ services:
     volumes:
       - /mnt/local/docker/$DIRECTORY/data:/www/assets
     networks:
-      - www
+      - $NW
     environment:
       - UID=$UID
       - GID=$GID
@@ -20,5 +20,5 @@ services:
       - traefik.http.routers.$ROUTER.rule=Host(`$URL1`,`$URL2`)
       - traefik.http.routers.$ROUTER.tls=true
 networks:
-  www:
+  $NW:
     external: true
