@@ -1,3 +1,5 @@
+# I have different container names and paths for the external and internal facing versions.  That way I can use the same compose file
+# and just change the env variables
 version: "3"
 services:
   homer:
