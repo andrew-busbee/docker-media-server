@@ -15,10 +15,10 @@ services:
       ND_BASEURL: ""
       ND_UIWELCOMEMESSAGE: "Welcome to our music library!"
       #OPTIONAL
-      ND_LASTFM_APIKEY: "ApiKey" #Last.fm ApiKey
-      ND_LASTFM_SECRET: "Shared_Secret" #Last.fm Shared Secret
-      ND_SPOTIFY_ID: "Client_ID" #Spotify Client ID. Required if you want Artist images
-      ND_SPOTIFY_SECRET: "Client_Secret" #Spotify Client Secret. Required if you want Artist images
+      ND_LASTFM_APIKEY: "$LASTFM_APIKEY" #Last.fm ApiKey
+      ND_LASTFM_SECRET: "$LASTFM_SECRET" #Last.fm Shared Secret
+      ND_SPOTIFY_ID: "$SPOTIFY_ID" #Spotify Client ID. Required if you want Artist images
+      ND_SPOTIFY_SECRET: "$SPOTIFY_SECRET" #Spotify Client Secret. Required if you want Artist images
     labels:
       - traefik.enable=true
       - traefik.docker.network=www
@@ -26,7 +26,7 @@ services:
       - traefik.http.routers.navidrome.entrypoints=web, websecure
       - traefik.http.routers.navidrome.tls=true
     volumes:
-      - "$PATH/docker/navidrome/config:/data"
+      - "/mnt/local/docker/navidrome/config:/data"
       - "/mnt/music:/music:ro"
 networks:
   www:
