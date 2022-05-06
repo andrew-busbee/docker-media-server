@@ -6,12 +6,12 @@ services:
     container_name: plex
     network_mode: host
     environment:
-      - PUID=$PUID  #user andrew
-      - PGID=$PGID #group busbee
+      - PUID=$PUID  
+      - PGID=$PGID 
       - TZ=America/Chicago
     volumes:
-      - $PATH/docker/plex/config:/config
-      - $PATH/plexTranscode:/transcode
+      - /mnt/local_450GB_HDD/docker/plex/config:/config
+      - /mnt/local_450GB_HDD/plexTranscode:/transcode
       - /mnt/media:/media    
       - /mnt/dvr:/dvr
       - /mnt/familyMedia:/familyMedia
