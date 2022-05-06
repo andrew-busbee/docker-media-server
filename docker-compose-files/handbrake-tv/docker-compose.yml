@@ -20,9 +20,9 @@ services:
       - AUTOMATED_CONVERSION_OVERWRITE_OUTPUT=1 #Overwrite file in destination = 1, Do Not overwrite = 0
     volumes:
       - $DOCKERDIR/handbrake_tv/config:/config:rw
-      - $SHAREDIR:/storage:ro 
-      - $SHAREDIR/tvSeriesContinuing:/tv-series:rw  
+      #- $SHAREDIR:/storage:ro 
+      - /mnt/media/tvSeriesContinuing:/tv-series:rw  
       - $USERDIR/downloads/handbrake/tv:/watch:rw       
     ports:
-      - 5801:5800
+      - $PORTS
     restart: unless-stopped
