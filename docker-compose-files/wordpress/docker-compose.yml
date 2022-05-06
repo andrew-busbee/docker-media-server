@@ -27,9 +27,9 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=www
-      - traefik.http.routers.davidbusbee.rule=Host(`$WWWURL`,`$URL`)
-      - traefik.http.routers.davidbusbee.entrypoints=web, websecure
-      - traefik.http.routers.davidbusbee.tls=true
+      - traefik.http.routers.$ROUTERNAME.rule=Host(`$WWWURL`,`$URL`)
+      - traefik.http.routers.$ROUTERNAME.entrypoints=web, websecure
+      - traefik.http.routers.$ROUTERNAME.tls=true
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: $MYSQLUSER
