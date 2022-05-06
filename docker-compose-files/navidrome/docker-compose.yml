@@ -2,7 +2,7 @@ version: "3"
 services:
   navidrome:
     image: deluan/navidrome:latest
-    container_name: www-navidrome
+    container_name: navidrome
     user: ${UID}:${GID} 
     networks:
       - www 
