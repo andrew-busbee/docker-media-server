@@ -16,7 +16,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=www
       - traefik.http.routers.secure-homer.entrypoints=web, websecure
-      - traefik.http.routers.secure-homer.rule=Host(`${URL`)
+      - traefik.http.routers.secure-homer.rule=Host(`${URL}`)
       - traefik.http.routers.secure-homer.tls=true
       # Only allow certain IPs since it is internal
       - traefik.http.middlewares.secure-homer-whitelist.ipwhitelist.sourcerange=${ALLOW_IPS}
