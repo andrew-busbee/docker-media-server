@@ -10,8 +10,8 @@ services:
       - PGID=$PGID 
       - TZ=America/Chicago
     volumes:
-      - /mnt/local_450GB_HDD/docker/plex/config:/config
-      - /mnt/local_450GB_HDD/plexTranscode:/transcode
+      - /mnt/local/docker/plex/config:/config
+      - /mnt/local/plexTranscode:/transcode
       - /mnt/media:/media    
       - /mnt/dvr:/dvr
       - /mnt/familyMedia:/familyMedia
