@@ -8,14 +8,14 @@ services:
       - WEBSOCKET_ENABLED=true
       - LOG_LEVEL=debug
       - SIGNUPS_ALLOWED=false
-      - DOMAIN=$DOMAIN
-      - SMTP_HOST=$SMTP
-      - SMTP_FROM=$FROM_EMAIL
+      - DOMAIN=${DOMAIN}
+      - SMTP_HOST=${SMTP}
+      - SMTP_FROM=${FROM_EMAIL}
       - SMTP_PORT=587
       - SMTP_SSL=true
-      - SMTP_USERNAME=$SMTP_USER
-      - SMTP_PASSWORD=$SMTP_PASS
-      - ADMIN_TOKEN=$TOKEN
+      - SMTP_USERNAME=${SMTP_USER}
+      - SMTP_PASSWORD=${SMTP_PASS}
+      - ADMIN_TOKEN=${TOKEN}
     networks:
       - www-whitelist
     volumes:
@@ -23,7 +23,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=www
-      - traefik.http.routers.vaultwarden.rule=Host(`$URL`)
+      - traefik.http.routers.vaultwarden.rule=Host(`${URL}`)
       - traefik.http.routers.vaultwarden.entrypoints=web, websecure
       - traefik.http.routers.vaultwarden.tls=true
       # Only allow certain IPs since it is internal - this is home IP
