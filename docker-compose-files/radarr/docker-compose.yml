@@ -14,5 +14,5 @@ services:
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete   #keep this dir so container can see the downloads
       - $USERDIR/downloads/handbrake/recycle/movies:/recycle   #recycle directory
     ports:
-      - 7878:7878
+      - $PORTS
     restart: unless-stopped
