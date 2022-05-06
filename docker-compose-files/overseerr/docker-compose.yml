@@ -2,7 +2,7 @@ version: '3.1'
 services:
   overseerr:
     image: lscr.io/linuxserver/overseerr
-    container_name: www-overseerr
+    container_name: overseerr
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
