@@ -5,14 +5,14 @@ services:
     image: ghcr.io/linuxserver/sonarr
     container_name: sonarr
     environment:
-      - PUID=$PUID
-      - PGID=$PGID
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Chicago
     volumes:
-      - $DOCKERDIR/sonarr/config:/config  
-      - $USERDIR/downloads/handbrake/tv:/tv   #root dir
-      - $USERDIR/downloads/sabnzbd/sab_complete:/complete #keep this dir so container can see the downloads 
-      - $USERDIR/downloads/handbrake/recycle/tv:/recycle   #recycle directory
+      - ${DOCKERDIR}/sonarr/config:/config  
+      - ${USERDIR}/downloads/handbrake/tv:/tv   #root dir
+      - ${USERDIR}/downloads/sabnzbd/sab_complete:/complete #keep this dir so container can see the downloads 
+      - ${USERDIR}/downloads/handbrake/recycle/tv:/recycle   #recycle directory
     ports:
-      - $PORTS
+      - ${PORTS}
     restart: unless-stopped
