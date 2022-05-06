@@ -4,8 +4,8 @@ services:
     image: lscr.io/linuxserver/overseerr
     container_name: www-overseerr
     environment:
-      - PUID=$PUID
-      - PGID=$PGID
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Chicago
     volumes:
       - /mnt/local/docker/overseerr/config:/config
@@ -16,7 +16,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=www
       - traefik.http.routers.overseerr.entrypoints=web, websecure
-      - traefik.http.routers.overseerr.rule=Host(`$URL`)
+      - traefik.http.routers.overseerr.rule=Host(`${URL}`)
       - traefik.http.routers.overseerr.tls=true
 networks:
   www:
