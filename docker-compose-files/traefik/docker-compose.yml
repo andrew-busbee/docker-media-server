@@ -8,7 +8,6 @@ services:
     networks:
       - www
       - www-whitelist
-      - homelab
     ports:
       - "80:80"
       - "443:443"
@@ -32,8 +31,6 @@ services:
     #  timeout: 10s
 networks:
   www:
-    external: true
-  homelab:
     external: true
   www-whitelist:
     external: true 
