@@ -3,7 +3,7 @@ version: "3"
 services:
   homer:
     image: b4bz/homer
-    container_name: secure-homer
+    container_name: homer-homelab
     volumes:
       - /mnt/local/docker/homer-homelab/data:/www/assets
     networks:
