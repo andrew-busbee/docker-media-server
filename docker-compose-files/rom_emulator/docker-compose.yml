@@ -5,12 +5,12 @@ services:
     image: lscr.io/linuxserver/emulatorjs
     container_name: emulatorjs
     environment:
-      - PUID=$PUID
-      - PGID=$PGID
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Chicago
     volumes:
-      - $PATH/docker/emulator/config:/config
-      - $PATH/docker/emulator/data:/data
+      - ${PATH}/docker/emulator/config:/config
+      - ${PATH}/docker/emulator/data:/data
     ports:
       - 3000:3000
       - 8004:80
