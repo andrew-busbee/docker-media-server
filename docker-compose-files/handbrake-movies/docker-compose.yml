@@ -6,8 +6,8 @@ services:
 #    cpus: 3.9
     container_name: handbrake_movies
     environment:
-      - PUID=$PUID
-      - PGID=$PGID
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Chicago
       - KEEP_APP_RUNNING=1
       - CLEAN_TMP_DIR=1
@@ -19,10 +19,10 @@ services:
       - AUTOMATED_CONVERSION_OUTPUT_DIR=/movies
       - AUTOMATED_CONVERSION_OUTPUT_SUBDIR=SAME_AS_SRC
     volumes:
-      - $DOCKERDIR/handbrake_movies/config:/config:rw
+      - ${DOCKERDIR}/handbrake_movies/config:/config:rw
       #- $SHAREDIR:/storage:ro 
       - /mnt/media/movies:/movies:rw  
-      - $USERDIR/downloads/handbrake/movies:/watch:rw        
+      - ${USERDIR}/downloads/handbrake/movies:/watch:rw        
     ports:
-      - $PORTS
+      - ${PORTS}
     restart: unless-stopped
