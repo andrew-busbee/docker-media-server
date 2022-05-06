@@ -19,6 +19,12 @@ services:
       - traefik.http.routers.${CONTAINER}.entrypoints=web, websecure
       - traefik.http.routers.${CONTAINER}.rule=Host(`${URL1}`,`${URL2}`)
       - traefik.http.routers.${CONTAINER}.tls=true
+      # Only allow certain IPs since it is internal - this is home IP
+      # Set ${COMMENT_OUT} to "#" to not use these lines.  Or set to "" to use them
+      ${COMMENT_OUT}- traefik.http.middlewares.${CONTAINER}-whitelist.ipwhitelist.sourcerange=${ALLOW_IPS}
+      #Ignore the cloudflare IPs and show the IP user is coming from
+      ${COMMENT_OUT}- traefik.http.middlewares.${CONTAINER}-whitelist.ipwhitelist.ipstrategy.excludedips=173.245.48.0/20,103.21.244.0/22,103.22.200.0/22,103.31.4.0/22,141.101.64.0/18,108.162.192.0/18,190.93.240.0/20,188.114.96.0/20,197.234.240.0/22,198.41.128.0/17,162.158.0.0/15,104.16.0.0/12,172.64.0.0/13,131.0.72.0/22
+      ${COMMENT_OUT}- traefik.http.routers.${CONTAINER}.middlewares=${CONTAINER}-whitelist@docker
 networks:
   www:
     external: true
