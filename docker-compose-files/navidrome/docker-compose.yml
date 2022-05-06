@@ -15,6 +15,7 @@ services:
       ND_BASEURL: ""  #leave blank to just use the URL in the router defined below.  Add /abc to have it as URL/abc if you choose
       #OPTIONAL
       ND_UIWELCOMEMESSAGE: "$MESSAGE"
+      #ND_GATRACKINGID: "$UATRACKERID #Send basic info to your own Google Analytics account. Must be in the format UA-XXXXXXXX
       ND_LASTFM_APIKEY: "$LASTFM_APIKEY" #Last.fm ApiKey
       ND_LASTFM_SECRET: "$LASTFM_SECRET" #Last.fm Shared Secret
       ND_SPOTIFY_ID: "$SPOTIFY_ID" #Spotify Client ID. Required if you want Artist images
