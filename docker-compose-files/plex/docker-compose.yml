@@ -1,0 +1,18 @@
+---
+version: "3"
+services:
+  plex:
+    image: plexinc/pms-docker:latest 
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=$PUID  #user andrew
+      - PGID=$PGID #group busbee
+      - TZ=America/Chicago
+    volumes:
+      - $PATH/docker/plex/config:/config
+      - $PATH/plexTranscode:/transcode
+      - /mnt/media:/media    
+      - /mnt/dvr:/dvr
+      - /mnt/familyMedia:/familyMedia
+    restart: unless-stopped
