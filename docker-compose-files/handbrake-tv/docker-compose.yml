@@ -6,8 +6,8 @@ services:
 #    cpus: 3.9
     container_name: handbrake_tv
     environment:
-      - PUID=$PUID
-      - PGID=$PGID
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Chicago
       - KEEP_APP_RUNNING=1
       - CLEAN_TMP_DIR=1
@@ -19,10 +19,10 @@ services:
       - AUTOMATED_CONVERSION_OUTPUT_SUBDIR=SAME_AS_SRC
       - AUTOMATED_CONVERSION_OVERWRITE_OUTPUT=1 #Overwrite file in destination = 1, Do Not overwrite = 0
     volumes:
-      - $DOCKERDIR/handbrake_tv/config:/config:rw
+      - ${DOCKERDIR}/handbrake_tv/config:/config:rw
       #- $SHAREDIR:/storage:ro 
       - /mnt/media/tvSeriesContinuing:/tv-series:rw  
-      - $USERDIR/downloads/handbrake/tv:/watch:rw       
+      - ${USERDIR}/downloads/handbrake/tv:/watch:rw       
     ports:
-      - $PORTS
+      - ${PORTS}
     restart: unless-stopped
