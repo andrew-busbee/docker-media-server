@@ -5,12 +5,12 @@ services:
     image: ghcr.io/linuxserver/jellyfin
     container_name: jellyfin
     environment:
-      - PUID=$PUID
-      - PGID=$PGID
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Chicago
-      - JELLYFIN_PublishedServerUrl=$URL #optional
+      - JELLYFIN_PublishedServerUrl=${URL} #optional
     volumes:
-      - $DOCKERDIR/jellyfin/config:/config
+      - ${DOCKERDIR}/jellyfin/config:/config
       - /mnt/media:/data/media
 #      - /opt/vc/lib:/opt/vc/lib #Optional - Path for Raspberry Pi OpenMAX libs.
     ports:
