@@ -11,7 +11,7 @@ services:
     volumes:
       - $DOCKERDIR/headphones/config:/config 
       - $USERDIR/downloads/sabnzbd/sab_complete:/complete
-      - $SHAREDIR/music:/music
+      - /mnt/media/music:/music
     ports:
-      - 8282:8181
+      - $PORTS
     restart: unless-stopped
