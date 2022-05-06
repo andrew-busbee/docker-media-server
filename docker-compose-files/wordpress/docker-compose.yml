@@ -27,7 +27,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=www
-      - traefik.http.routers.$ROUTERNAME.rule=Host(`$WWWURL`,`$URL`)
+      - traefik.http.routers.$ROUTERNAME.rule=Host(`$URL1`,`$URL2`,`$URL3`,`$URL4`) # Can use same URL for each if using fewer than 4
       - traefik.http.routers.$ROUTERNAME.entrypoints=web, websecure
       - traefik.http.routers.$ROUTERNAME.tls=true
     environment:
