@@ -13,8 +13,8 @@ services:
       ND_LOGLEVEL: info  
       ND_SESSIONTIMEOUT: 24h
       ND_BASEURL: ""
-      ND_UIWELCOMEMESSAGE: "Welcome to our music library!"
       #OPTIONAL
+      ND_UIWELCOMEMESSAGE: "$MESSAGE"
       ND_LASTFM_APIKEY: "$LASTFM_APIKEY" #Last.fm ApiKey
       ND_LASTFM_SECRET: "$LASTFM_SECRET" #Last.fm Shared Secret
       ND_SPOTIFY_ID: "$SPOTIFY_ID" #Spotify Client ID. Required if you want Artist images
