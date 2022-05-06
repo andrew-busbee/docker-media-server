@@ -8,7 +8,7 @@ services:
       - PGID=$PGID
       - TZ=America/Chicago
     volumes:
-      - $PATH/docker/tautulli/config:/config
+      - /mnt/local/docker/tautulli/config:/config
     networks:
       - www
     restart: unless-stopped
