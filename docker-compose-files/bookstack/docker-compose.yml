@@ -9,7 +9,7 @@ services:
       - PGID=$PGID
       - APP_URL=$HTTPS_URL # https://whatever.yourdomain.com
       - DB_HOST=bookstack_db
-      - DB_USER=bookstack_user
+      - DB_USER=bookstack
       - DB_PASS=$DB_PASS
       - DB_DATABASE=bookstackapp
     volumes:
