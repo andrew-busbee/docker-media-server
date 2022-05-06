@@ -5,13 +5,13 @@ services:
     image: ghcr.io/linuxserver/headphones
     container_name: headphones
     environment:
-      - PUID=$PUID
-      - PGID=$PGID
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Chicago
     volumes:
-      - $DOCKERDIR/headphones/config:/config 
-      - $USERDIR/downloads/sabnzbd/sab_complete:/complete
+      - ${DOCKERDIR}/headphones/config:/config 
+      - ${USERDIR}/downloads/sabnzbd/sab_complete:/complete
       - /mnt/media/music:/music
     ports:
-      - $PORTS
+      - ${PORTS}
     restart: unless-stopped
