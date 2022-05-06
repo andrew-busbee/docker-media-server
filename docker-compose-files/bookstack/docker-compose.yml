@@ -7,17 +7,17 @@ services:
     environment:
       - PUID=$PUID
       - PGID=$PGID
-      - APP_URL=$HTTPS_URL
+      - APP_URL=$HTTPS_URL # https://whatever.yourdomain.com
       - DB_HOST=bookstack_db
       - DB_USER=bookstack_user
       - DB_PASS=$DB_PASS
       - DB_DATABASE=bookstackapp
     volumes:
-      - $PATH/docker/bookstack/config:/config
+      - /mnt/local/docker/bookstack/config:/config
     labels:
       - traefik.enable=true
       - traefik.docker.network=www
-      - traefik.http.routers.bookstack.rule=Host(`$DOMAIN`)
+      - traefik.http.routers.bookstack.rule=Host(`$URL`)  # whatever.yourdomain.com
       - traefik.http.routers.bookstack.entrypoints=web, websecure
       - traefik.http.routers.bookstack.tls=true
     networks:
@@ -32,15 +32,15 @@ services:
     networks:
       - backend 
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=$PUID
+      - PGID=$PGID
       - MYSQL_ROOT_PASSWORD=$ROOT_PASS
       - TZ=America/Chicago
       - MYSQL_DATABASE=bookstackapp
       - MYSQL_USER=bookstack_user
       - MYSQL_PASSWORD=$DB_PASS
     volumes:
-      - $PATH/docker/bookstack/bookstackdb:/config
+      - /mnt/local/docker/bookstack/bookstackdb:/config
     restart: unless-stopped
 networks:
   www:
