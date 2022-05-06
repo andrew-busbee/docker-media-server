@@ -5,14 +5,14 @@ services:
     image: ghcr.io/linuxserver/sabnzbd
     container_name: sabnzbd
     environment:
-      - PUID=$PUID
-      - PGID=$PGID
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=America/Chicago
     volumes:
-      - $DOCKERDIR/sabnzbd/config:/config
-      - $USERDIR/downloads/sabnzbd/sab_incomplete:/incomplete
-      - $USERDIR/downloads/sabnzbd/sab_complete:/complete
+      - ${DOCKERDIR}/sabnzbd/config:/config
+      - ${USERDIR}/downloads/sabnzbd/sab_incomplete:/incomplete
+      - ${USERDIR}/downloads/sabnzbd/sab_complete:/complete
     ports:
-      - $PORTS1
-      - $PORTS2
+      - ${PORTS1}
+      - ${PORTS2}
     restart: unless-stopped
