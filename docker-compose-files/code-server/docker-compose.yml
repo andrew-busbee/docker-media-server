@@ -16,11 +16,11 @@ services:
     volumes:
        - /mnt/local/docker/code-server/config:/config
        #Add as many folders as you would like below in order to make them available in the code editor
-       #- /mnt/local/docker/${FOLDER1}:/docker/${FOLDER1}
-       #- /mnt/local/docker/${FOLDER2}:/docker/${FOLDER1}
-       #- /mnt/local/docker/${FOLDER3}:/docker/${FOLDER1}
+       #- /mnt/local/docker/${FOLDER1}:/config/docker/${FOLDER1}
+       #- /mnt/local/docker/${FOLDER2}:/config/docker/${FOLDER1}
+       #- /mnt/local/docker/${FOLDER3}:/config/docker/${FOLDER1}
        #or point to a root folder like below
-       - /mnt/local/docker/:/docker/
+       - /mnt/local/docker/:/config/docker/
     restart: unless-stopped
     labels:
       - traefik.enable=true
