@@ -18,4 +18,4 @@ services:
     ports:
       - ${PORTS1}
       - ${PORTS2}
-    restart: unless-stopped
+    restart: always
