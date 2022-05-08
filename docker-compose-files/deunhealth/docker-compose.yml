@@ -7,7 +7,7 @@ services:
     container_name: deunhealth
     network_mode: "none"
     environment:
-      - LOG_LEVEL=info
+      - LOG_LEVEL=debug #info
       - HEALTH_SERVER_ADDRESS=127.0.0.1:9999
       - TZ=America/Chicago
     restart: always
