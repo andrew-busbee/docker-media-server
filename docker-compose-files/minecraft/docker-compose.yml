@@ -5,6 +5,9 @@ services:
     image: itzg/minecraft-server
     ports:
       - ${PORTS}
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     environment:
       EULA: "TRUE"
       SERVER_NAME: ${SERVERNAME}
