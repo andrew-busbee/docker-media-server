@@ -11,6 +11,9 @@ services:
     volumes:
        - "/etc/minecraft/server:/data"
     command: --noconsole
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     environment:
       EULA: "TRUE"
       ENABLE_RCON: "true"
