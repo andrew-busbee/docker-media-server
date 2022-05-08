@@ -10,4 +10,4 @@ services:
       - deunhealth.restart.on.unhealthy=true
     volumes:
       - ${PATH}/docker/plex-meta-manager/config:/config
-    restart: unless-stopped
+    restart: always
