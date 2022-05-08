@@ -22,7 +22,7 @@ services:
       - /mnt/local/docker/vaultwarden/data:/data
     labels:
       - traefik.enable=true
-      - traefik.docker.network=www
+      - traefik.docker.network=www-whitelist
       - traefik.http.routers.vaultwarden.rule=Host(`${URL}`)
       - traefik.http.routers.vaultwarden.entrypoints=web, websecure
       - traefik.http.routers.vaultwarden.tls=true
