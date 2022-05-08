@@ -8,6 +8,9 @@ services:
     volumes:
       - ${WEBSITEDIR}/mysql:/var/lib/mysql
     restart: always
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQLROOTPASSWORD}
       MYSQL_DATABASE: ${MYSQLDATABASE}
