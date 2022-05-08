@@ -26,7 +26,7 @@ services:
       #WORLD: ${WORLD}
     tty: true
     stdin_open: true
-    restart: unless-stopped
+    restart: always
     volumes:
       - ${PATH}/minecraft-data:/data
       - ${PATH}/minecraft/saves-to-import:/worlds:ro
