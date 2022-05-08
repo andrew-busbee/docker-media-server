@@ -28,4 +28,4 @@ services:
 #      - /dev/video10:/dev/video10 #optional
 #      - /dev/video11:/dev/video11 #optional
 #      - /dev/video12:/dev/video12 #optional
-    restart: unless-stopped
+    restart: always
