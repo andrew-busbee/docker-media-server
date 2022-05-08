@@ -21,6 +21,9 @@ services:
       ND_SPOTIFY_ID: "${SPOTIFY_ID}" #Spotify Client ID. Required if you want Artist images
       ND_SPOTIFY_SECRET: "${SPOTIFY_SECRET}" #Spotify Client Secret. Required if you want Artist images
     labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
+      # Labels for Traefik
       - traefik.enable=true
       - traefik.docker.network=www
       - traefik.http.routers.navidrome.rule=Host(`${URL}`)
