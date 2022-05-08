@@ -1,3 +1,5 @@
+#will check for unhealthy containers that have the following label:
+#deunhealth.restart.on.unhealthy=true
 version: "3.7"
 services:
   deunhealth:
