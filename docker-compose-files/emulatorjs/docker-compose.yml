@@ -15,7 +15,7 @@ services:
       - 3000:3000
       - 8004:80
       - 4001:4001 #optional
-    restart: unless-stopped
+    restart: always
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
