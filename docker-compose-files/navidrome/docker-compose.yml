@@ -6,7 +6,7 @@ services:
     user: ${UID}:${GID} 
     networks:
       - www 
-    restart: unless-stopped
+    restart: always
     environment:
       # Optional: put your config options customization here. Examples:
       ND_SCANSCHEDULE: 1h
