@@ -17,4 +17,5 @@ services:
       - 4001:4001 #optional
     restart: unless-stopped
     labels:
-      - autoheal=true    
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
