@@ -18,6 +18,9 @@ services:
     networks:
       - www 
     labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
+      # Labels for Traefik
       - traefik.enable=true
       - traefik.docker.network=www      
       - traefik.http.routers.mealie.entrypoints=web, websecure
