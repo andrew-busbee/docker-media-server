@@ -21,7 +21,7 @@ services:
        #- /mnt/local/docker/${FOLDER3}:/config/docker/${FOLDER1}
        #or point to a root folder like below
        - /mnt/local/docker/:/config/docker/
-    restart: unless-stopped
+    restart: always
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
