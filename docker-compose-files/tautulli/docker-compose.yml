@@ -11,7 +11,7 @@ services:
       - /mnt/local/docker/tautulli/config:/config
     networks:
       - www
-    restart: unless-stopped
+    restart: always
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
