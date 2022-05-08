@@ -18,6 +18,9 @@ services:
       - AUTOMATED_CONVERSION_OUTPUT_DIR=/tv-series
       - AUTOMATED_CONVERSION_OUTPUT_SUBDIR=SAME_AS_SRC
       - AUTOMATED_CONVERSION_OVERWRITE_OUTPUT=1 #Overwrite file in destination = 1, Do Not overwrite = 0
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     volumes:
       - ${DOCKERDIR}/handbrake_tv/config:/config:rw
       #- $SHAREDIR:/storage:ro 
