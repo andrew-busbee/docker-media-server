@@ -23,6 +23,9 @@ services:
        - /mnt/local/docker/:/config/docker/
     restart: unless-stopped
     labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
+      # Labels for Traefik
       - traefik.enable=true
       - traefik.docker.network=www-whitelist
       - traefik.http.routers.codeserver.rule=Host(`${URL}`)
