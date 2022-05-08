@@ -13,6 +13,9 @@ services:
       - ${DOCKERDIR}/jellyfin/config:/config
       - /mnt/media:/data/media
 #      - /opt/vc/lib:/opt/vc/lib #Optional - Path for Raspberry Pi OpenMAX libs.
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     ports:
       - 8096:8096
 #      - 8920:8920 #Optional - Https webUI 
