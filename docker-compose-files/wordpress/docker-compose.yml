@@ -25,6 +25,9 @@ services:
       - ${WEBSITEDIR}/wordpress:/var/www/html
     restart: always
     labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
+      # Labels for Traefik
       - traefik.enable=true
       - traefik.docker.network=www
       - traefik.http.routers.$ROUTERNAME.rule=Host(`${URL1}`,`${URL2}`,`${URL3}`,`${URL4}`) # Can use same URL for each if using fewer than 4
