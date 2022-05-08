@@ -17,4 +17,4 @@ services:
       - /mnt/media/music:/music
     ports:
       - ${PORTS}
-    restart: unless-stopped
+    restart: always
