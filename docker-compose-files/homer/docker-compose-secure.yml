@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     labels:
       - traefik.enable=true
-      - traefik.docker.network=www
+      - traefik.docker.network=www-whitelist
       - traefik.http.routers.secure-homer.entrypoints=web, websecure
       - traefik.http.routers.secure-homer.rule=Host(`${URL1}`,`${URL2}`)
       - traefik.http.routers.secure-homer.tls=true
