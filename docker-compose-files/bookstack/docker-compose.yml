@@ -15,6 +15,9 @@ services:
     volumes:
       - /mnt/local/docker/bookstack/config:/config
     labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
+      # Labels for Traefik
       - traefik.enable=true
       - traefik.docker.network=www
       - traefik.http.routers.bookstack.rule=Host(`${URL}`)  # whatever.yourdomain.com
