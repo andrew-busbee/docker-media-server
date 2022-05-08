@@ -5,6 +5,9 @@ services:
     container_name: plex_meta_manager
     environment:
       - TZ=America/Chicago
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     volumes:
       - ${PATH}/docker/plex-meta-manager/config:/config
     restart: unless-stopped
