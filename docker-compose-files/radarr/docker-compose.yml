@@ -8,6 +8,9 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=America/Chicago
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     volumes:
       - ${DOCKERDIR}/radarr/config:/config
       - ${USERDIR}/downloads/handbrake/movies:/movies   #root directory
