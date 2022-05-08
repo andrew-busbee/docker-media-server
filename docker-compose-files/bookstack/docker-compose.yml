@@ -26,7 +26,7 @@ services:
     networks:
       - www
       - backend
-    restart: unless-stopped
+    restart: always
     depends_on:
       - bookstack_db
   bookstack_db:
@@ -42,9 +42,12 @@ services:
       - MYSQL_DATABASE=bookstackapp
       - MYSQL_USER=bookstack_user
       - MYSQL_PASSWORD=${DB_PASS}
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     volumes:
       - /mnt/local/docker/bookstack/bookstackdb:/config
-    restart: unless-stopped
+    restart: always
 networks:
   www:
     external: true 
