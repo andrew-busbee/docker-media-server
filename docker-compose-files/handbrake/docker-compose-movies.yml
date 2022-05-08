@@ -18,6 +18,9 @@ services:
       - AUTOMATED_CONVERSION_SOURCE_STABLE_TIME=90 #seconds to be stable before converting to make sure it is not being copied
       - AUTOMATED_CONVERSION_OUTPUT_DIR=/movies
       - AUTOMATED_CONVERSION_OUTPUT_SUBDIR=SAME_AS_SRC
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     volumes:
       - ${DOCKERDIR}/handbrake_movies/config:/config:rw
       #- $SHAREDIR:/storage:ro 
