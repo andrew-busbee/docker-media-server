@@ -9,6 +9,9 @@ services:
       - PUID=${PUID}  
       - PGID=${PGID} 
       - TZ=America/Chicago
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     volumes:
       - /mnt/local/docker/plex/config:/config
       - /mnt/local/plexTranscode:/transcode
