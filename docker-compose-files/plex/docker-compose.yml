@@ -18,4 +18,4 @@ services:
       - /mnt/media:/media    
       - /mnt/dvr:/dvr
       - /mnt/familyMedia:/familyMedia
-    restart: unless-stopped
+    restart: always
