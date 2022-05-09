@@ -4,14 +4,15 @@ services:
   bookstack:
     image: lscr.io/linuxserver/bookstack
     container_name: bookstack
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - APP_URL=${HTTPS_URL} # https://whatever.yourdomain.com
-      - DB_HOST=bookstack_db
-      - DB_USER=bookstack
-      - DB_PASS=${DB_PASS}
-      - DB_DATABASE=bookstackapp
+    env_file: /mnt/local/env_files/bookstack.env
+    #environment:
+    #  - PUID=${PUID}
+    #  - PGID=${PGID}
+    #  - APP_URL=${HTTPS_URL} # https://whatever.yourdomain.com
+    #  - DB_HOST=bookstack_db
+    #  - DB_USER=bookstack
+    #  - DB_PASS=${DB_PASS}
+    #  - DB_DATABASE=bookstackapp
     volumes:
       - /mnt/local/docker/bookstack/config:/config
     labels:
@@ -34,14 +35,15 @@ services:
     container_name: bookstack_db
     networks:
       - backend 
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - MYSQL_ROOT_PASSWORD=${ROOT_PASS}
-      - TZ=America/Chicago
-      - MYSQL_DATABASE=bookstackapp
-      - MYSQL_USER=bookstack_user
-      - MYSQL_PASSWORD=${DB_PASS}
+    env_file: /mnt/local/env_files/bookstack.env
+    #environment:
+    #  - PUID=${PUID}
+    #  - PGID=${PGID}
+    #  - MYSQL_ROOT_PASSWORD=${ROOT_PASS}
+    #  - TZ=America/Chicago
+    #  - MYSQL_DATABASE=bookstackapp
+    #  - MYSQL_USER=bookstack_user
+    #  - MYSQL_PASSWORD=${DB_PASS}
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
