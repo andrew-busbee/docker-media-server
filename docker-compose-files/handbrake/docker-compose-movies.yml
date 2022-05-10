@@ -3,7 +3,7 @@ version: '3.1'
 services:
   handbrakevmovies:
     image: jlesage/handbrake
-    cpus: .5
+    cpus: 3.5
     container_name: handbrake_movies
     environment:
       - PUID=${PUID}
