@@ -6,6 +6,9 @@ services:
     image: qmcgaw/deunhealth:latest
     container_name: deunhealth
     network_mode: "none"
+    labels:
+      # Label to monitor container and restart if unhealthy
+      - deunhealth.restart.on.unhealthy=true
     environment:
       - LOG_LEVEL=info
       - HEALTH_SERVER_ADDRESS=127.0.0.1:9999
