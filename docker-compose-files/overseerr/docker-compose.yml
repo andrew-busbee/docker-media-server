@@ -8,7 +8,7 @@ services:
       - PGID=${PGID}
       - TZ=America/Chicago
     volumes:
-      - /mnt/local/docker/overseerr/config:/config
+      - /mnt/docker/overseerr/config:/config
     networks:
       - www
     restart: always
