@@ -14,7 +14,7 @@ services:
       - DB_PASS=${DB_PASS}
       - DB_DATABASE=${DB_DATABASE}
     volumes:
-      - /mnt/local/docker/bookstack/config:/config
+      - /mnt/docker/bookstack/config:/config
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
@@ -48,7 +48,7 @@ services:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
     volumes:
-      - /mnt/local/docker/bookstack/bookstackdb:/config
+      - /mnt/docker/bookstack/bookstackdb:/config
     restart: always
 networks:
   www:
