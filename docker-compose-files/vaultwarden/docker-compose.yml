@@ -19,7 +19,7 @@ services:
     networks:
       - www-whitelist
     volumes:
-      - /mnt/local/docker/vaultwarden/data:/data
+      - /mnt/docker/vaultwarden/data:/data
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
