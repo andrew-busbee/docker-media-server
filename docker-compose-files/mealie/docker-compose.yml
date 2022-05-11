@@ -27,7 +27,7 @@ services:
       - traefik.http.routers.mealie.rule=Host(`${URL}`)
       - traefik.http.routers.mealie.tls=true
     volumes:
-      - /mnt/local/docker/mealie/config:/app/data
+      - /mnt/docker/mealie/config:/app/data
 networks:
   www:
     external: true   
