@@ -5,7 +5,7 @@ services:
     image: b4bz/homer
     container_name: homer-homelab
     volumes:
-      - /mnt/docker/homer-homelab/data:/www/assets
+      - /mnt/local/docker/homer-homelab/data:/www/assets
     networks:
       - www-whitelist
     environment:
