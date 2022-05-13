@@ -13,7 +13,7 @@ services:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
     volumes:
-      - /mnt/local/docker/plex/config:/config
+      - /mnt/plex/config:/config
       - /mnt/local/plexTranscode:/transcode
       - /mnt/media:/media    
       - /mnt/dvr:/dvr
