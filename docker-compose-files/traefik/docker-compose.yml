@@ -14,10 +14,10 @@ services:
       # (Optional) Expose Dashboard
       - "8080:8080"  # Don't do this in production!
     volumes:
-      - /mnt/docker/traefik:/etc/traefik
+      - /mnt/local/docker/traefik:/etc/traefik
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /mnt/docker/traefik/logs:/var/log/traefik/
-      - /mnt/docker/traefik/certs:/etc/certs
+      - /mnt/local/docker/traefik/logs:/var/log/traefik/
+      - /mnt/local/docker/traefik/certs:/etc/certs
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
