@@ -5,8 +5,8 @@ services:
     image: kanboard/kanboard:latest
     container_name: kanboard
     volumes:
-      - /mnt/docker/kanboard/data:/var/www/app/data
-      - /mnt/docker/kanboard/plugins:/var/www/app/plugins
+      - /mnt/local/docker/kanboard/data:/var/www/app/data
+      - /mnt/local/docker/kanboard/plugins:/var/www/app/plugins
       #- /mnt/local/docker/kanboard/ssl:/etc/nginx/ssl
     networks:
       - www-whitelist
