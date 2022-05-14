@@ -10,7 +10,7 @@ services:
     volumes:
       - ${DOCKERDIR}/mylar3/config:/config
       - /mnt/media/comics:/comics
-      - ${DOCKERDIR}/mylar3/downloads:/downloads
+      - ${DOWNLOADS}:/downloads
     ports:
       - 8090:8090
     restart: unless-stopped
