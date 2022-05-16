@@ -29,6 +29,7 @@ services:
       - traefik.http.routers.navidrome.rule=Host(`${URL}`)
       - traefik.http.routers.navidrome.entrypoints=web, websecure
       - traefik.http.routers.navidrome.tls=true
+      - traefik.http.routers.authelia.middlewares=authelia@docker
     volumes:
       - "/mnt/local/docker/navidrome/config:/data"
       - "/mnt/music:/music:ro"
