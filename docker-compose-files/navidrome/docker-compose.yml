@@ -26,6 +26,9 @@ services:
       # Labels for Traefik
       - traefik.enable=true
       - traefik.docker.network=www
+      - traefik.http.middlewares.authelia.forwardauth.address=http://authelia:9091/api/verify?rd=https://login.example.com/
+      - traefik.http.middlewares.authelia.forwardauth.trustforwardheader=true
+      - traefik.http.middlewares.authelia.forwardauth.authresponseheaders=Remote-User, Remote-Groups
       - traefik.http.routers.navidrome.rule=Host(`${URL}`)
       - traefik.http.routers.navidrome.entrypoints=web, websecure
       - traefik.http.routers.navidrome.tls=true
