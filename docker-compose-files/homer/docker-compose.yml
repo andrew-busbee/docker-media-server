@@ -19,7 +19,7 @@ services:
       # Labels for Traefik
       - traefik.enable=true
       - traefik.docker.network=www
-      - traefik.http.routers.www-homer.entrypoints=web, websecure
+      - traefik.http.routers.www-homer.entrypoints=http, https
       - traefik.http.routers.www-homer.rule=Host(`${URL1}`,`${URL2}`)
       - traefik.http.routers.www-homer.tls=true
 networks:
