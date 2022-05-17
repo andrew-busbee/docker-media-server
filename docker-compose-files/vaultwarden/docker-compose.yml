@@ -27,7 +27,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=www-whitelist
       - traefik.http.routers.vaultwarden.rule=Host(`${URL}`)
-      - traefik.http.routers.vaultwarden.entrypoints=web, websecure
+      - traefik.http.routers.vaultwarden.entrypoints=http, https
       - traefik.http.routers.vaultwarden.tls=true
       # Only allow certain IPs since it is internal - this is home IP
       - traefik.http.middlewares.vaultwarden-whitelist.ipwhitelist.sourcerange=${ALLOW_IPS}
