@@ -36,7 +36,7 @@ services:
         - traefik.docker.network=www
         - traefik.http.routers.keycloak.rule=Host(`${URL}`) # Can use same URL for each if using fewer than 4
         - traefik.http.routers.keycloak.entrypoints=web, websecure
-        - traefik.http.routers.keycloak.tls=true
+       # - traefik.http.routers.keycloak.tls=true
         - traefik.http.services.keycloak.loadbalancer.server.port=8080
       networks:
         - www
@@ -49,3 +49,4 @@ networks:
   www:
     external: true 
   backend:        
+    external: true 
