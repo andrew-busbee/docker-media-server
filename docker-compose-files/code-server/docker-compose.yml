@@ -29,7 +29,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=www-whitelist
       - traefik.http.routers.codeserver.rule=Host(`${URL}`)
-      - traefik.http.routers.codeserver.entrypoints=web, websecure
+      - traefik.http.routers.codeserver.entrypoints=http, https
       - traefik.http.routers.codeserver.tls=true
       # Only allow certain IPs since it is internal - this is home IP
       - traefik.http.middlewares.codeserver-whitelist.ipwhitelist.sourcerange=${ALLOW_IPS}
