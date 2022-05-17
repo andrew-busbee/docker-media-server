@@ -18,7 +18,7 @@ services:
       # Labels for Traefik
       - traefik.enable=true
       - traefik.docker.network=www
-      - traefik.http.routers.tautulli.entrypoints=web, websecure
+      - traefik.http.routers.tautulli.entrypoints=http, https
       - traefik.http.routers.tautulli.rule=Host(`${URL}`)
       - traefik.http.routers.tautulli.tls=true
 networks:
