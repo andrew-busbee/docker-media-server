@@ -9,7 +9,6 @@ services:
       volumes:
         - /mnt/local/docker/keycloak/postgresql:/var/lib/postgresql/data
       environment:
-        - logger.level=DEBUG
         POSTGRES_DB: ${POSTGRES_DB}
         POSTGRES_USER: ${POSTGRES_USER}
         POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -17,7 +16,6 @@ services:
       image: quay.io/keycloak/keycloak:legacy
       container_name: keycloak
       environment:
-        - logger.level=DEBUG
         DB_VENDOR: ${DB_VENDOR}
         DB_ADDR: ${DB_ADDR}
         DB_DATABASE: ${POSTGRES_DB}
