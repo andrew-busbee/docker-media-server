@@ -22,7 +22,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=www
       - traefik.http.routers.bookstack.rule=Host(`bookstack.${DOMAIN}`)  # whatever.yourdomain.com
-      - traefik.http.routers.bookstack.entrypoints=web, websecure
+      - traefik.http.routers.bookstack.entrypoints=http, https
       - traefik.http.routers.bookstack.tls=true
     networks:
       - www
