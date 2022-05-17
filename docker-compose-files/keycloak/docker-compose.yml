@@ -13,7 +13,7 @@ services:
         POSTGRES_USER: ${POSTGRES_USER}
         POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
   keycloak:
-      image: quay.io/keycloak/keycloak:latest
+      image: quay.io/keycloak/keycloak:legacy
       container_name: keycloak
       environment:
         DB_VENDOR: ${DB_VENDOR}
