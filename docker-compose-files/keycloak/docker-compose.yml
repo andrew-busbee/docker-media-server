@@ -33,7 +33,7 @@ services:
         - deunhealth.restart.on.unhealthy=true
       #  # Labels for Traefik
         - traefik.enable=true
-        - traefik.docker.network=www, backend
+        - traefik.docker.network=www
         - traefik.http.routers.keycloak.rule=Host(`${URL}`) # Can use same URL for each if using fewer than 4
         - traefik.http.routers.keycloak.entrypoints=web, websecure
         - traefik.http.routers.keycloak.tls=true
