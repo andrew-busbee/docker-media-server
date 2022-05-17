@@ -27,7 +27,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=www
       - traefik.http.routers.navidrome.rule=Host(`${URL}`)
-      - traefik.http.routers.navidrome.entrypoints=web, websecure
+      - traefik.http.routers.navidrome.entrypoints=http, https
       - traefik.http.routers.navidrome.tls=true
     volumes:
       - "/mnt/local/docker/navidrome/config:/data"
