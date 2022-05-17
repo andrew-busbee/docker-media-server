@@ -17,7 +17,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=www
       - traefik.http.routers.kanboard.rule=Host(`${URL}`)
-      - traefik.http.routers.kanboard.entrypoints=web, websecure
+      - traefik.http.routers.kanboard.entrypoints=http, https
       - traefik.http.routers.kanboard.tls=true
       # Only allow certain IPs since it is internal - this is home IP
       - traefik.http.middlewares.kanboard-whitelist.ipwhitelist.sourcerange=${ALLOW_IPS}
