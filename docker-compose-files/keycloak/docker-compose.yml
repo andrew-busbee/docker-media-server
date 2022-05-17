@@ -1,0 +1,50 @@
+version: '3'
+services:
+  postgres:
+      image: postgres
+      container_name: keycloak_postgres
+      restart: unless-stopped
+      networks:
+        - backend 
+      volumes:
+        - /mnt/local/docker/keycloak/postgresql:/var/lib/postgresql/data
+      environment:
+        POSTGRES_DB: ${POSTGRES_DB}
+        POSTGRES_USER: ${POSTGRES_USER}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  keycloak:
+      image: quay.io/keycloak/keycloak:legacy
+      container_name: keycloak
+      environment:
+        DB_VENDOR: ${DB_VENDOR}
+        DB_ADDR: ${DB_ADDR}
+        DB_DATABASE: ${POSTGRES_DB}
+        DB_USER: ${POSTGRES_USER}
+        DB_SCHEMA: ${DB_SCHEMA}
+        DB_PASSWORD: ${POSTGRES_PASSWORD}
+        KEYCLOAK_USER: ${KEYCLOAK_USER}
+        KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+        # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in 
+        # production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+        #JDBC_PARAMS: "ssl=true"
+      restart: unless-stopped
+      labels:
+        # Label to monitor container and restart if unhealthy
+        - deunhealth.restart.on.unhealthy=true
+        # Labels for Traefik
+        - traefik.enable=true
+        - traefik.docker.network=www
+        - traefik.http.routers.keycloak.rule=Host(`${URL}`) # Can use same URL for each if using fewer than 4
+        - traefik.http.routers.keycloak.entrypoints=web, websecure
+        - traefik.http.routers.keycloak.tls=true
+      networks:
+        - www
+        - backend
+      #ports:
+      #  - 8001:8080
+      depends_on:
+        - postgres
+networks:
+  www:
+    external: true 
+  backend:        
