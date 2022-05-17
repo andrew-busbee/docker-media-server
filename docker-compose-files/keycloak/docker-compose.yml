@@ -28,9 +28,9 @@ services:
         # production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
         #JDBC_PARAMS: "ssl=true"
       restart: unless-stopped
-      labels:
+      #labels:
       #  # Label to monitor container and restart if unhealthy
-        - deunhealth.restart.on.unhealthy=true
+      #  - deunhealth.restart.on.unhealthy=true
       #  # Labels for Traefik
       #  - traefik.enable=true
       #  - traefik.docker.network=www
