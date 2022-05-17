@@ -8,6 +8,8 @@ services:
         - backend 
       volumes:
         - /mnt/local/docker/keycloak/postgresql:/var/lib/postgresql/data
+      log:
+        level: debug
       environment:
         POSTGRES_DB: ${POSTGRES_DB}
         POSTGRES_USER: ${POSTGRES_USER}
@@ -15,6 +17,8 @@ services:
   keycloak:
       image: quay.io/keycloak/keycloak:legacy
       container_name: keycloak
+      log:
+        level: debug
       environment:
         DB_VENDOR: ${DB_VENDOR}
         DB_ADDR: ${DB_ADDR}
