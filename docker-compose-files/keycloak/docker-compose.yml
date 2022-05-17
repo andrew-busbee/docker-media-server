@@ -28,21 +28,21 @@ services:
         # production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
         #JDBC_PARAMS: "ssl=true"
       restart: unless-stopped
-      #labels:
+      labels:
       #  # Label to monitor container and restart if unhealthy
-      #  - deunhealth.restart.on.unhealthy=true
+        - deunhealth.restart.on.unhealthy=true
       #  # Labels for Traefik
-      #  - traefik.enable=true
-      #  - traefik.docker.network=www
-      #  - traefik.http.routers.keycloak.rule=Host(`${URL}`) # Can use same URL for each if using fewer than 4
-      #  - traefik.http.routers.keycloak.entrypoints=web, websecure
-      #  - traefik.http.routers.keycloak.tls=true
-      #  - traefik.http.services.keycloak.loadbalancer.server.port=8080
+        - traefik.enable=true
+        - traefik.docker.network=www, backend
+        - traefik.http.routers.keycloak.rule=Host(`${URL}`) # Can use same URL for each if using fewer than 4
+        - traefik.http.routers.keycloak.entrypoints=web, websecure
+        - traefik.http.routers.keycloak.tls=true
+        - traefik.http.services.keycloak.loadbalancer.server.port=8080
       networks:
         - www
         - backend
-      ports:
-        - 8001:8080
+      #ports:
+      #  - 8001:8080
       depends_on:
         - postgres
 networks:
