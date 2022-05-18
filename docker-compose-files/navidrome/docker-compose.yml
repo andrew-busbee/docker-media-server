@@ -30,7 +30,7 @@ services:
       - traefik.http.routers.navidrome.entrypoints=http, https
       - traefik.http.routers.navidrome.tls=true
       # Send to Authelia
-      - traefik.http.routers.codeserver.middlewares=codeserver-whitelist@docker
+      - traefik.http.routers.codeserver.middlewares=authelia@docker
       # OR Only allow certain IPs since it is internal - this is home IP
       #- traefik.http.middlewares.codeserver-whitelist.ipwhitelist.sourcerange=${ALLOW_IPS}
       ##Ignore the cloudflare IPs and show the IP user is coming from
