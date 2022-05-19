@@ -20,10 +20,10 @@ services:
       - traefik.http.routers.kanboard.entrypoints=http, https
       - traefik.http.routers.kanboard.tls=true
       # Only allow certain IPs since it is internal - this is home IP
-      - traefik.http.middlewares.kanboard-whitelist.ipwhitelist.sourcerange=${ALLOW_IPS}
+      #- traefik.http.middlewares.kanboard-whitelist.ipwhitelist.sourcerange=${ALLOW_IPS}
       #Ignore the cloudflare IPs and show the IP user is coming from
-      - traefik.http.middlewares.kanboard-whitelist.ipwhitelist.ipstrategy.excludedips=173.245.48.0/20,103.21.244.0/22,103.22.200.0/22,103.31.4.0/22,141.101.64.0/18,108.162.192.0/18,190.93.240.0/20,188.114.96.0/20,197.234.240.0/22,198.41.128.0/17,162.158.0.0/15,104.16.0.0/12,172.64.0.0/13,131.0.72.0/22
-      - traefik.http.routers.kanboard.middlewares=kanboard-whitelist@docker
+      #- traefik.http.middlewares.kanboard-whitelist.ipwhitelist.ipstrategy.excludedips=173.245.48.0/20,103.21.244.0/22,103.22.200.0/22,103.31.4.0/22,141.101.64.0/18,108.162.192.0/18,190.93.240.0/20,188.114.96.0/20,197.234.240.0/22,198.41.128.0/17,162.158.0.0/15,104.16.0.0/12,172.64.0.0/13,131.0.72.0/22
+      - traefik.http.routers.kanboard.middlewares=ip-whitelist@docker
     restart: always
 networks:
   www-whitelist:
