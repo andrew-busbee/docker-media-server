@@ -4,7 +4,7 @@ services:
   traefik:
     image: "traefik:v2.6"
     container_name: "traefik"
-    restart: always
+    restart: unless-stopped
     networks:
       - www
       - www-whitelist
