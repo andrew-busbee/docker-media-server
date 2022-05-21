@@ -18,8 +18,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /mnt/local/docker/traefik/logs:/var/log/traefik/
       - /mnt/local/docker/traefik/certs:/etc/certs
-      - /mnt/local/docker/traefik/traefik.toml:/etc/traefik/traefik.toml
-      - /mnt/local/docker/traefik/servers.toml:/servers.toml
+      #- /mnt/local/docker/traefik/traefik.toml:/etc/traefik/traefik.toml
+      #- /mnt/local/docker/traefik/servers.toml:/servers.toml
       
     labels:
       # Label to monitor container and restart if unhealthy
