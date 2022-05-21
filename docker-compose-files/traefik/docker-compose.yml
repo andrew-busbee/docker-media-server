@@ -18,6 +18,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /mnt/local/docker/traefik/logs:/var/log/traefik/
       - /mnt/local/docker/traefik/certs:/etc/certs
+      - /home/andrew/docker/traefik/dynamic/:/etc/traefki/dynamic
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
