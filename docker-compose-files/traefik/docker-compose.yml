@@ -22,7 +22,7 @@ services:
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
-      - traefik.http.routers.route-to-local-ip.rule="Host(`sabnzbd.example.com`)"
+      - traefik.http.routers.route-to-local-ip.rule="Host(`sabnzbd.thebusbees.com`)"
       - traefik.http.routers.route-to-local-ip.service=route-to-local-ip-service
       - traefik.http.routers.route-to-local-ip.priority=1000
       - traefik.http.routers.route-to-local-ip.entryPoints=http, https
