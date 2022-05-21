@@ -23,8 +23,8 @@ services:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
      
-    command:
-      - "--certificatesresolvers.staging.acme.httpchallenge=true"
+    #command:
+      #- "--certificatesresolvers.staging.acme.httpchallenge=true"
       #- "--certificatesresolvers.staging.acme.httpchallenge.entrypoint=http"
       #- "--certificatesresolvers.staging.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
       #- "--certificatesresolvers.staging.acme.email=email@thebusbees.com.com"
