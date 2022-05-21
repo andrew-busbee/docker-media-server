@@ -28,5 +28,5 @@ services:
     stdin_open: true
     restart: always
     volumes:
-      - ${PATH}/minecraft-data:/data
+      - ${PATH}:/data
       #- ${PATH}/minecraft/saves-to-import:/worlds:ro
