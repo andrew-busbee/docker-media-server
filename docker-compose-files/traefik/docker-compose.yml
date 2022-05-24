@@ -8,6 +8,7 @@ services:
     networks:
       - www
       - www-whitelist
+      - matrix_net
     ports:
       - "80:80"
       - "443:443"
@@ -35,3 +36,5 @@ networks:
     external: true
   www-whitelist:
     external: true 
+  matrix_net:
+    external: true
