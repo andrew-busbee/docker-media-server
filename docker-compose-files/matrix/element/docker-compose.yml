@@ -1,26 +1,5 @@
 version: "3.3"
 services:
-  synapse:
-    image: "matrixdotorg/synapse:latest"
-    container_name: "matrix-synapse"
-    restart: always
-    networks:
-      - matrix_net
-    volumes:
-      # needs to be chown 991:991 
-      - "/mnt/local/docker/chat-services/synapse:/data"
-    labels:
-      # Label to monitor container and restart if unhealthy
-      - deunhealth.restart.on.unhealthy=true
-      # Labels for Traefik
-      - traefik.enable=true
-      - traefik.docker.network=matrix_net
-      - traefik.http.routers.matrix-synapse.rule=Host(`matrix.${DOMAIN}`)
-      - traefik.http.routers.matrix-synapse.entrypoints=http, https
-      - traefik.http.routers.matrix-synapse.tls=true
-      # Only allow certain IPs since it is internal 
-      - traefik.http.routers.matrix-synapse.middlewares=chat-whitelist@docker
-
   element:
     image: vectorim/element-web:latest
     container_name: "matrix-element"
