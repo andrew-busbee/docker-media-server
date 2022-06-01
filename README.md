@@ -7,7 +7,7 @@ Right now I have docker-compose files for the following applications that I am r
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/codeserver.png" alt="codeserver" width="50"> Codeserver<BR>
 Deunhealth<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/element.png" alt="traefik" width="50"> Element<BR>
-emulatorjs<BR>
+<img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/emulatorjs.png" alt="traefik" width="50"> Emulatorjs<BR>
 fail2ban<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/grafana.png" alt="grafana" width="50"> Grafana<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/handbrake.png" alt="handbrake" width="50"> Handbrake<BR>
