@@ -6,6 +6,7 @@ Right now I have docker-compose files for the following applications that I am r
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/bookstack.png" alt="bookstack" width="50"> Bookstack<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/codeserver.png" alt="codeserver" width="50"> Codeserver<BR>
 Deunhealth<BR>
+<img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/element.png" alt="traefik" width="50"> Element<BR>
 emulatorjs<BR>
 fail2ban<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/grafana.png" alt="grafana" width="50"> Grafana<BR>
@@ -15,7 +16,6 @@ fail2ban<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/jackett.png" alt="jackett" width="50"> Jackett<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/jellyfin.png" alt="jellyfin" width="50"> Jellyfin<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/kanboard.png" alt="kanboard" width="50"> Kanboard<BR>
-Element<BR>
 Synapse<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/mealie.png" alt="mealie" width="50"> Mealie<BR>
 Minecraft<BR>
@@ -28,5 +28,5 @@ Minecraft<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/sonarr.png" alt="sonarr" width="50"> Sonarr<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/tautulli.png" alt="tautulli" width="50"> Tautulli<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/traefik.png" alt="traefik" width="50"> Traefik<BR>
-Vaultwarden<BR>
+<img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/bitwarden.png" alt="traefik" width="50"> Vaultwarden<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/wordpress.png" alt="wordpress" width="50"> Wordpress<BR>
