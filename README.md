@@ -1,6 +1,6 @@
 These are my current docker compose files.  Most have env variables that can be put in an .env file or in the environment variable section of portainer
 
-Right now I have docker-compose files for the following applications that I am running.  I will also be adding some of the support files in order to aid in running items like authelia and Traefik that use extra yml or toml files:
+I will also be adding some of the support files in order to aid in running items like authelia and Traefik that use extra yml or toml files:
 
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/authelia.png" alt="authelia" width="50"> Authelia<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/bookstack.png" alt="bookstack" width="50"> Bookstack<BR>
