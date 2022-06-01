@@ -1,1 +1,6 @@
+version: "3.3"
 
+services:
+  whoami:
+    image: "traefik/whoami"
+    container_name: "simple-service"
