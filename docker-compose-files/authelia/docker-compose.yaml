@@ -1,0 +1,49 @@
+version: '2.4'
+
+services:
+  authelia:
+    image: authelia/authelia:4
+    container_name: authelia
+    volumes:
+      - /mnt/local/docker/authelia:/config
+    restart: unless-stopped
+    networks:
+      - www
+      - matrix_net
+      - www-whitelist
+    environment:
+      - TZ=America/Chicago
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.authelia-https.rule=Host(`auth.${DOMAIN}`)      
+      - traefik.http.routers.authelia-https.entrypoints=http, https
+      - traefik.http.routers.authelia-https.tls=true
+      - traefik.http.routers.authelia-https.service=authelia-svc
+      - traefik.http.services.authelia-svc.loadbalancer.server.port=9091
+    
+      
+      # Authelia:
+      # Send to Authelia for Authorization
+      # Add any domains that need to to forward through authelia into the configuration.yml file
+      - traefik.http.middlewares.authelia.forwardauth.address=http://authelia:9091/api/verify?rd=https://auth.${DOMAIN}
+      - traefik.http.middlewares.authelia.forwardauth.trustForwardHeader=true
+      - traefik.http.middlewares.authelia.forwardauth.authResponseHeaders=Remote-User, Remote-Groups
+      # Whitelist: 
+      # Only allow certain IPs since it is internal
+      - traefik.http.middlewares.ip-whitelist.ipwhitelist.sourcerange=${ALLOW_IPS}
+      # Ignore the cloudflare IPs and show the IP user is coming from
+      - traefik.http.middlewares.ip-whitelist.ipwhitelist.ipstrategy.excludedips=173.245.48.0/20,103.21.244.0/22,103.22.200.0/22,103.31.4.0/22,141.101.64.0/18,108.162.192.0/18,190.93.240.0/20,188.114.96.0/20,197.234.240.0/22,198.41.128.0/17,162.158.0.0/15,104.16.0.0/12,172.64.0.0/13,131.0.72.0/22
+      # Use this line for containers to put them behind the IP check:
+      #- traefik.http.routers.ip-whitelist.middlewares=ip-whitelist@docker
+      # Only allow certain IPs since it is internal
+      - traefik.http.middlewares.chat-whitelist.ipwhitelist.sourcerange=${ALLOW_CHAT_IPS}
+      # Ignore the cloudflare IPs and show the IP user is coming from
+      - traefik.http.middlewares.chat-whitelist.ipwhitelist.ipstrategy.excludedips=173.245.48.0/20,103.21.244.0/22,103.22.200.0/22,103.31.4.0/22,141.101.64.0/18,108.162.192.0/18,190.93.240.0/20,188.114.96.0/20,197.234.240.0/22,198.41.128.0/17,162.158.0.0/15,104.16.0.0/12,172.64.0.0/13,131.0.72.0/22
+
+networks:
+  www:
+    external: true 
+  matrix_net:
+    external: true
+  www-whitelist:
+    external: true
