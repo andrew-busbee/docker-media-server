@@ -18,7 +18,7 @@ fail2ban<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/kanboard.png" alt="kanboard" width="50"> Kanboard<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/matrix.png" alt="kanboard" width="75"> Synapse<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/mealie.png" alt="mealie" width="50"> Mealie<BR>
-Minecraft<BR>
+<img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/minecraft.png" alt="mealie" width="50"> Minecraft<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/mylar.png" alt="mylar" width="50"> Mylar<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/navidrome.png" alt="navidrome" width="50"> Navidrome<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/overseerr.png" alt="overseerr" width="50"> Overseerr<BR>
