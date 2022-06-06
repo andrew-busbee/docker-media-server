@@ -23,8 +23,8 @@ services:
       - deunhealth.restart.on.unhealthy=true
     volumes:
       - ${DOCKERDIR}/handbrake_tv/config:/config:rw
-      #- /mnt/media/tvSeriesContinuing:/tv-series:rw 
-      - /mnt/mediaUSB/tvSeriesContinuing:/tv-series:rw 
+      - /mnt/media/tvSeriesContinuing:/tv-series:rw 
+      #- /mnt/mediaUSB/tvSeriesContinuing:/tv-series:rw 
       - ${USERDIR}/downloads/handbrake/tv:/watch:rw       
     ports:
       - ${PORTS}
