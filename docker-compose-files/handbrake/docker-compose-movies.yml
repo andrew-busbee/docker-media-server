@@ -28,4 +28,4 @@ services:
       - ${USERDIR}/downloads/handbrake/movies:/watch:rw        
     ports:
       - ${PORTS}
-    restart: unless-stopped
+    restart: always
