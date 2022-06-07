@@ -16,7 +16,7 @@ services:
       - /mnt/local/plex/config:/config
       - /mnt/local/plexTranscode:/transcode
       - /mnt/media:/media
-      - /mnt/mediaUSB:/mediaUSB
+      - /mnt/media2:/media2
       - /mnt/dvr:/dvr
       - /mnt/familyMedia:/familyMedia
     restart: always
