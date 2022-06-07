@@ -3,7 +3,7 @@ services:
   synapse:
     image: "matrixdotorg/synapse:latest"
     container_name: "matrix-synapse"
-    restart: always
+    restart: unless-stopped
     networks:
       - matrix_net
     volumes:
