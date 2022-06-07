@@ -17,6 +17,7 @@ services:
       - /mnt/local/plexTranscode:/transcode
       - /mnt/media:/media
       - /mnt/media2:/media2
+      - /mnt/downloads:/downloads #temp folder until processed by handbrake.  Allows immediate access to videos without having to wait for handbrake
       - /mnt/dvr:/dvr
       - /mnt/familyMedia:/familyMedia
     restart: always
