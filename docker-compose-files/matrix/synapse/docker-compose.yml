@@ -9,9 +9,9 @@ services:
     volumes:
       # needs to be chown 991:991 
       - "/mnt/local/docker/chat-services/synapse:/data"
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
+    #environment:
+    #  - PUID=${PUID}
+    #  - PGID=${PGID}
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
