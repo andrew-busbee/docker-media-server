@@ -8,7 +8,8 @@ services:
       - matrix_net
     volumes:
       # needs to be chown 991:991 
-      - "/mnt/local/docker/chat-services/synapse:/data"
+      #- "/mnt/local/docker/chat-services/synapse:/data" #when on main VM
+      - "${PATH}/synapse"  #When on remote VM
     #environment:
     #  - PUID=${PUID}
     #  - PGID=${PGID}
