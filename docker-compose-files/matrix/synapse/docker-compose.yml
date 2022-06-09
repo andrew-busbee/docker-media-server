@@ -23,7 +23,7 @@ services:
       - traefik.http.routers.matrix-synapse.entrypoints=http, https
       - traefik.http.routers.matrix-synapse.tls=true
       # Only allow certain IPs since it is internal 
-      #- traefik.http.routers.matrix-synapse.middlewares=chat-whitelist@docker
+      - traefik.http.routers.matrix-synapse.middlewares=chat-whitelist@docker
 
 networks:
   matrix_net:
