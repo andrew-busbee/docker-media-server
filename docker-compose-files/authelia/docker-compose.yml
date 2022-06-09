@@ -11,6 +11,7 @@ services:
       - www
       - matrix_net
       - www-whitelist
+      - videoconference
     environment:
       - TZ=America/Chicago
     labels:
@@ -46,4 +47,6 @@ networks:
   matrix_net:
     external: true
   www-whitelist:
+    external: true
+  videoconference:
     external: true
