@@ -20,7 +20,7 @@ services:
       - traefik.enable=true
       - traefik.docker.network=matrix_net
       - traefik.http.services.matrix-synapse.loadbalancer.server.port=8008
-      - traefik.http.routers.matrix-synapse.rule=Host(`matrix.${DOMAIN}`)
+      - traefik.http.routers.matrix-synapse.rule=Host(`synapse.${DOMAIN}`)
       - traefik.http.routers.matrix-synapse.entrypoints=http, https
       - traefik.http.routers.matrix-synapse.tls=true
       # Only allow certain IPs since it is internal 
