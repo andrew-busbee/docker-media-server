@@ -25,6 +25,22 @@ services:
       - traefik.http.routers.matrix-synapse.tls=true
       # Only allow certain IPs since it is internal 
       - traefik.http.routers.matrix-synapse.middlewares=chat-whitelist@docker
+
+  nginx:
+    image: nginx:1.12-alpine
+    restart: unless-stopped
+    networks:
+      - matrix_net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:thebusbees.com"
+      - "traefik.frontend.passHostHeader=true"
+      - "traefik.port=80"
+      - "traefik.docker.network=web"
+    volumes:
+      - /mnt/local/docker/chat-services/matrix/nginx/matrix.conf:/etc/nginx/conf.d/matrix.conf
+      - /mnt/local/docker/chat-services/matrix/nginx/www:/var/www/
+      
   redis:
     image: "redis:latest"
     restart: "unless-stopped"
