@@ -27,7 +27,7 @@ services:
       - traefik.http.routers.matrix-synapse.middlewares=chat-whitelist@docker
 
   nginx:
-    image: nginx:1.12-alpine
+    image: nginx:latest
     restart: unless-stopped
     networks:
       - matrix_net
