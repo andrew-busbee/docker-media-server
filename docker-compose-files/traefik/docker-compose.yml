@@ -9,6 +9,7 @@ services:
       - www
       - www-whitelist
       - matrix_net
+      - videoconference
     ports:
       - "80:80"
       - "443:443"
@@ -37,4 +38,6 @@ networks:
   www-whitelist:
     external: true 
   matrix_net:
+    external: true
+  videoconference:
     external: true
