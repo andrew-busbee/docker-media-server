@@ -26,12 +26,12 @@ services:
       # Only allow certain IPs since it is internal 
       - traefik.http.routers.matrix-synapse.middlewares=chat-whitelist@docker
       
-  redis:
-    image: "redis:latest"
-    restart: "unless-stopped"
-    container_name: "matrix-redis"
-    networks:
-      - matrix_net
+  #redis:
+  #  image: "redis:latest"
+  #  restart: "unless-stopped"
+  #  container_name: "matrix-redis"
+  #  networks:
+  #    - matrix_net
     
 networks:
   matrix_net:
