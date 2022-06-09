@@ -20,7 +20,7 @@ services:
       - traefik.http.routers.matrix-element.entrypoints=http, https
       - traefik.http.routers.matrix-element.tls=true
       # Only allow certain IPs since it is internal 
-      #- traefik.http.routers.matrix-element.middlewares=chat-whitelist@docker 
+      - traefik.http.routers.matrix-element.middlewares=chat-whitelist@docker 
 networks:
   matrix_net:
     external: true 
