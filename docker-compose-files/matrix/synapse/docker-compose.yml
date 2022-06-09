@@ -8,7 +8,7 @@ services:
       - matrix_net
     volumes:
       # needs to be chown 991:991 
-      - "/mnt/local/docker/chat-services/matrix/synapse:/data" #when on main VM
+      - "/mnt/local/docker/chat-services/synapse:/data" #when on main VM
       #- ${PATH}/synapse:/data  #When on remote VM
     #environment:
     #  - PUID=${PUID}
@@ -25,21 +25,6 @@ services:
       - traefik.http.routers.matrix-synapse.tls=true
       # Only allow certain IPs since it is internal 
       - traefik.http.routers.matrix-synapse.middlewares=chat-whitelist@docker
-
-  nginx:
-    image: nginx:latest
-    restart: unless-stopped
-    networks:
-      - matrix_net
-    labels:
-      - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:thebusbees.com"
-      - "traefik.frontend.passHostHeader=true"
-      - "traefik.port=80"
-      - "traefik.docker.network=web"
-    volumes:
-      - /mnt/local/docker/chat-services/matrix/nginx/matrix.conf:/etc/nginx/conf.d/matrix.conf
-      - /mnt/local/docker/chat-services/matrix/nginx/www:/var/www/
       
   redis:
     image: "redis:latest"
