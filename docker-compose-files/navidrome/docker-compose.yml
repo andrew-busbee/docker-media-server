@@ -20,6 +20,8 @@ services:
       ND_LASTFM_SECRET: "${LASTFM_SECRET}" #Last.fm Shared Secret
       ND_SPOTIFY_ID: "${SPOTIFY_ID}" #Spotify Client ID. Required if you want Artist images
       ND_SPOTIFY_SECRET: "${SPOTIFY_SECRET}" #Spotify Client Secret. Required if you want Artist images
+    ports:
+      - 8008:4533
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
