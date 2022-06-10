@@ -7,8 +7,8 @@ services:
     volumes:
       - /mnt/local/docker/authelia:/config
     restart: unless-stopped
-    ports:
-      - 9091:9091
+    #ports:
+    #  - 9091:9091
     networks:
       - www
       - matrix_net
