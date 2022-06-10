@@ -11,7 +11,7 @@ services:
     networks:
       - www-whitelist
     ports:
-      - 8006:8443
+      - 8006:80
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
