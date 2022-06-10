@@ -12,7 +12,9 @@ services:
     environment:
       - UID=${UID}
       - GID=${GID}
-    restart: always
+    restart: unless-stopped
+    ports:
+      - 8004:8443
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
