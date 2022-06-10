@@ -11,8 +11,8 @@ services:
       - TZ=America/Chicago
       - PASSWORD=${PASS}  
       - SUDO_PASSWORD=${ROOTPASS} #optional 
-    #ports:
-    #  - 8443:8443
+    ports:
+      - 8001:8443
     volumes:
        - /mnt/local/docker/code-server/config:/config
        #Add as many folders as you would like below in order to make them available in the code editor
