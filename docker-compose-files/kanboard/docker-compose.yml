@@ -10,6 +10,8 @@ services:
       #- /mnt/local/docker/kanboard/ssl:/etc/nginx/ssl
     networks:
       - www-whitelist
+    ports:
+      - 8006:8443
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
