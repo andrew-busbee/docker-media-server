@@ -6,7 +6,7 @@ services:
     container_name: bookstack
     #env_file: /mnt/local/env_files/bookstack.env
     ports:
-      - 8002:8443
+      - 8002:80
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
