@@ -11,7 +11,9 @@ services:
       - /mnt/local/docker/overseerr/config:/config
     networks:
       - www
-    restart: always
+    ports:
+      - 8009:5055
+    restart: unless-stopped
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
