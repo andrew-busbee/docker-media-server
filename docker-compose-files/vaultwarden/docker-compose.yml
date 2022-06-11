@@ -16,6 +16,8 @@ services:
       - SMTP_USERNAME=${SMTP_USER}
       - SMTP_PASSWORD=${SMTP_PASS}
       - ADMIN_TOKEN=${TOKEN}
+    ports:
+      - 8015:80
     networks:
       - www-whitelist
     volumes:
