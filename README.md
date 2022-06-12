@@ -21,6 +21,7 @@ fail2ban<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/minecraft.png" alt="mealie" width="50"> Minecraft<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/mylar.png" alt="mylar" width="50"> Mylar<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/navidrome.png" alt="navidrome" width="50"> Navidrome<BR>
+<img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/nginxproxymanager.png" alt="nginx proxy manager" width="50"> Nginx Proxy Manager<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/overseerr.png" alt="overseerr" width="50"> Overseerr<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/plex.png" alt="plex" width="50"> Plex<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/radarr.png" alt="radarr" width="50"> Radarr<BR>
