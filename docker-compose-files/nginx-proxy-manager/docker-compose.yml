@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  nginxproxymanager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx-proxy-manager
+    restart: unless-stopped
+    ports:
+      # These ports are in format <host-port>:<container-port>
+      - '80:80' # Public HTTP Port
+      - '443:443' # Public HTTPS Port
+      - '81:81' # Admin Web Port
+
+    environment:
+      # the SQLite DB file within the container
+      DB_SQLITE_FILE: "/data/mysql/database.sqlite"
+      # Uncomment this if IPv6 is not enabled on your host
+      DISABLE_IPV6: 'true'
+
+    volumes:
+      - "${DOCKER_PATH}/nginx/data:/data"
+      - "${DOCKER_PATH}/nginx/letsencrypt:/etc/letsencrypt"
+
+    healthcheck:
+      test: ["CMD", "/bin/check-health"]
+      interval: 10s
+      timeout: 3s
+    networks:
+      - www
+
+
+networks:
+  www:
+    external: true  
