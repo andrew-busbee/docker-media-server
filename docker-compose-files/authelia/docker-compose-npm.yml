@@ -1,0 +1,20 @@
+# This version is for use with NGIX Proxy Manager.  If you use Traefik, use the other file
+version: '2.4'
+
+services:
+  authelia:
+    image: authelia/authelia:4
+    container_name: authelia
+    volumes:
+      - ${PATH}/authelia:/config
+    restart: unless-stopped
+    networks:
+      - www
+    ports:
+      - ${PORT}:9091
+    environment:
+      - TZ=${TZ}
+
+networks:
+  www:
+    external: true 
