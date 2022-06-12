@@ -1,3 +1,4 @@
+#This version is for use in Traefik installs.  If you use NGINX Proxy Manager, see the other compose file.
 version: '2.4'
 
 services:
@@ -7,8 +8,6 @@ services:
     volumes:
       - /mnt/local/docker/authelia:/config
     restart: unless-stopped
-    #ports:
-    #  - 9091:9091
     networks:
       - www
       - matrix_net
