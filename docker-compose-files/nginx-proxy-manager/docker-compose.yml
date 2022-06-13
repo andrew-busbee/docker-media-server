@@ -2,7 +2,7 @@ version: "3.7"
 services:
   nginxproxymanager:
     image: 'jc21/nginx-proxy-manager:latest'
-    container_name: nginx-proxy-manager
+    container_name: nginx
     restart: unless-stopped
     ports:
       # These ports are in format <host-port>:<container-port>
