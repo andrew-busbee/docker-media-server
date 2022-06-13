@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3'
 services:
   vaultwarden:
     image: vaultwarden/server:latest
@@ -22,7 +22,7 @@ services:
       #- www-whitelist
       - www
     volumes:
-      - ${PATH}/vaultwarden/data:/data
+      - $PATH/vaultwarden/data:/data
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
