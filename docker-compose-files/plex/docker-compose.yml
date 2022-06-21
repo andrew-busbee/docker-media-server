@@ -9,7 +9,7 @@ services:
       - PUID=${PUID}  
       - PGID=${PGID} 
       - TZ=America/Chicago
-      - PLEX_CLAIM=claim-abc123 #Must be used if spinning up new server or rebuilding.  Use https://www.plex.tv/claim/ to get a new code.
+      #- PLEX_CLAIM=claim-abc123 #Must be used if spinning up new server or rebuilding.  Use https://www.plex.tv/claim/ to get a new code.
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
