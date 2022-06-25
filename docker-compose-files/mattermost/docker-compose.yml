@@ -17,8 +17,7 @@ services:
     environment:
       # timezone inside container
       - TZ
-      - PUID=${PUID}
-      - PGID=${PGID}      
+
       # necessary Postgres options/variables
       - POSTGRES_USER
       - POSTGRES_PASSWORD
