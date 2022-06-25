@@ -25,7 +25,8 @@ services:
       - ${DOCKERDIR}/handbrake_tv/config:/config:rw
       #- /mnt/media/tvSeriesContinuing:/tv-series:rw 
       - /mnt/media2/tvSeriesContinuing:/tv-series:rw 
-      - ${USERDIR}/downloads/handbrake/tv:/watch:rw       
+      #- ${USERDIR}/downloads/handbrake/tv:/watch:rw  
+      - /mnt/local/downloads/handbrake/tv:/watch:rw
     ports:
       - ${PORTS}
     restart: always
