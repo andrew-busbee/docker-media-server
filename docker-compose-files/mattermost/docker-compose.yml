@@ -51,8 +51,8 @@ services:
     environment:
       # timezone inside container
       - TZ
-      - PUID=${PUID}
-      - PGID=${PGID}  
+      #- PUID=${PUID}
+      #- PGID=${PGID}  
       # necessary Mattermost options/variables (see env.example)
       - MM_SQLSETTINGS_DRIVERNAME
       - MM_SQLSETTINGS_DATASOURCE
