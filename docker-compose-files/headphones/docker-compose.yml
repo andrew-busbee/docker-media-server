@@ -13,7 +13,7 @@ services:
       - deunhealth.restart.on.unhealthy=true
     volumes:
       - ${DOCKERDIR}/headphones/config:/config 
-      - ${USERDIR}/downloads/sabnzbd/sab_complete:/complete
+      - /mnt/local/downloads/sabnzbd/sab_complete:/complete
       - /mnt/media/music:/music
     ports:
       - ${PORTS}
