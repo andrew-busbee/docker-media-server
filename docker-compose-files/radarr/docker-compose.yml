@@ -13,9 +13,9 @@ services:
       - deunhealth.restart.on.unhealthy=true
     volumes:
       - ${DOCKERDIR}/radarr/config:/config
-      - ${USERDIR}/downloads/handbrake/movies:/movies   #root directory
-      - ${USERDIR}/downloads/sabnzbd/sab_complete:/complete   #keep this dir so container can see the downloads
-      - ${USERDIR}/downloads/handbrake/recycle/movies:/recycle   #recycle directory
+      - /mnt/local/downloads/handbrake/movies:/movies   #root directory
+      - /mnt/local/downloads/sabnzbd/sab_complete:/complete   #keep this dir so container can see the downloads
+      - /mnt/local/downloads/handbrake/recycle/movies:/recycle   #recycle directory
     ports:
       - ${PORTS}
     restart: always
