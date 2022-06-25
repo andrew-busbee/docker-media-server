@@ -13,8 +13,8 @@ services:
       - deunhealth.restart.on.unhealthy=true
     volumes:
       - ${DOCKERDIR}/sabnzbd/config:/config
-      - ${USERDIR}/downloads/sabnzbd/sab_incomplete:/incomplete
-      - ${USERDIR}/downloads/sabnzbd/sab_complete:/complete
+      - /mnt/local/downloads/sabnzbd/sab_incomplete:/incomplete
+      - /mnt/local/downloads/sabnzbd/sab_complete:/complete
     ports:
       - ${PORTS1}
       - ${PORTS2}
