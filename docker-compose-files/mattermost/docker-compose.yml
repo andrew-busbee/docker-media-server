@@ -17,7 +17,8 @@ services:
     environment:
       # timezone inside container
       - TZ
-
+      - PUID=${PUID}
+      - PGID=${PGID}      
       # necessary Postgres options/variables
       - POSTGRES_USER
       - POSTGRES_PASSWORD
@@ -51,7 +52,8 @@ services:
     environment:
       # timezone inside container
       - TZ
-
+      - PUID=${PUID}
+      - PGID=${PGID}  
       # necessary Mattermost options/variables (see env.example)
       - MM_SQLSETTINGS_DRIVERNAME
       - MM_SQLSETTINGS_DATASOURCE
