@@ -13,9 +13,9 @@ services:
       - deunhealth.restart.on.unhealthy=true
     volumes:
       - ${DOCKERDIR}/sonarr/config:/config  
-      - ${USERDIR}/downloads/handbrake/tv:/tv   #root dir
-      - ${USERDIR}/downloads/sabnzbd/sab_complete:/complete #keep this dir so container can see the downloads 
-      - ${USERDIR}/downloads/handbrake/recycle/tv:/recycle   #recycle directory
+      - /mnt/local/downloads/handbrake/tv:/tv   #root dir
+      - /mnt/local/downloads/sabnzbd/sab_complete:/complete #keep this dir so container can see the downloads 
+      - /mnt/local/downloads/handbrake/recycle/tv:/recycle   #recycle directory
     ports:
       - ${PORTS}
     restart: always
