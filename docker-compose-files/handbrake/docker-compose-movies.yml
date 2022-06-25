@@ -25,7 +25,8 @@ services:
       - ${DOCKERDIR}/handbrake_movies/config:/config:rw
       #- /mnt/media/movies:/movies:rw  
       - /mnt/media2/movies:/movies:rw  
-      - ${USERDIR}/downloads/handbrake/movies:/watch:rw        
+      #- ${USERDIR}/downloads/handbrake/movies:/watch:rw 
+      - /mnt/local/downloads/handbrake/movies:/watch:rw
     ports:
       - ${PORTS}
     restart: always
