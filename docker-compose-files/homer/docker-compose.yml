@@ -6,7 +6,7 @@ services:
     image: b4bz/homer
     container_name: homer
     volumes:
-      - /mnt/local/docker/${FOLDER}/data:/www/assets
+      - ${DOCKERROOT}/data:/www/assets
     networks:
       - www
     environment:
