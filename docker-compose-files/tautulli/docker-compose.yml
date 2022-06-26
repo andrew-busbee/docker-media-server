@@ -8,9 +8,9 @@ services:
       - PGID=${PGID}
       - TZ=America/Chicago
     ports:
-      - 8016:8181
+      - ${PORT}:8181
     volumes:
-      - /mnt/local/docker/tautulli/config:/config
+      - ${DOCKERROOT}/docker/tautulli/config:/config
     networks:
       - www
     restart: always
