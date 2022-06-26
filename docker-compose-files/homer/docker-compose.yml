@@ -14,7 +14,7 @@ services:
       - GID=${GID}
     restart: unless-stopped
     ports:
-      - 8004:8080
+      - ${PORT}:8080
     labels:
       # Label to monitor container and restart if unhealthy
       - deunhealth.restart.on.unhealthy=true
