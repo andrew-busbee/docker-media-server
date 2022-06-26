@@ -12,7 +12,7 @@ services:
     networks:
       - www
     ports:
-      - 8009:5055
+      - ${PORT}:5055
     restart: unless-stopped
     labels:
       # Label to monitor container and restart if unhealthy
