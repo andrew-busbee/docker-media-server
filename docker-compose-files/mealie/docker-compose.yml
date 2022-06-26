@@ -16,7 +16,7 @@ services:
       RECIPE_DISABLE_COMMENTS: 'true'
       RECIPE_DISABLE_AMOUNT: 'false'
     ports:
-      - 8007:80
+      - ${PORT}:80
     networks:
       - www 
     labels:
@@ -29,7 +29,7 @@ services:
       - traefik.http.routers.mealie.rule=Host(`${URL}`)
       - traefik.http.routers.mealie.tls=true
     volumes:
-      - /mnt/local/docker/mealie/config:/app/data
+      - ${DOCKERROOT}/docker/mealie/config:/app/data
 networks:
   www:
     external: true   
