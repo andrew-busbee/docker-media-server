@@ -9,6 +9,7 @@ Deunhealth<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/element.png" alt="traefik" width="50"> Element<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/emulatorjs.png" alt="traefik" width="50"> Emulatorjs<BR>
 fail2ban<BR>
+<img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/filebrowser.png" alt="filebrowser" width="50"> File Browser<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/grafana.png" alt="grafana" width="50"> Grafana<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/handbrake.png" alt="handbrake" width="50"> Handbrake<BR>
 <img src="https://github.com/andrew-busbee/homer-icons/raw/master/png/headphones.png" alt="headphones" width="50"> Headphones<BR>
