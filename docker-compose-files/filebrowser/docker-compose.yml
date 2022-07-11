@@ -1,0 +1,16 @@
+---
+version: "3"
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    ports:
+      - 8001:80
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ${PATH}/docker/filebrowser/filebrowser.db:/database/filebrowser.db
+      - ${PATH}/docker/filebrowser/settings.json:/config/settings.json
+      - ${UPLOADPATH}:/srv
+    
