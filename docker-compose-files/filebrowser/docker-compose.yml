@@ -12,5 +12,6 @@ services:
     volumes:
       - ${PATH}/docker/filebrowser/filebrowser.db:/database/filebrowser.db
       - ${PATH}/docker/filebrowser/settings.json:/config/settings.json
+      - ${PATH}/docker/filebrowser/icons:/icons  #For use if customizing 
       - ${UPLOADPATH}:/srv
     
