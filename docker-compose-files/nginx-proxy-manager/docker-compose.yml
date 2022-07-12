@@ -24,10 +24,10 @@ services:
       test: ["CMD", "/bin/check-health"]
       interval: 10s
       timeout: 3s
-    networks:
-      - www
+#    networks:
+#      - www
 
 
-networks:
-  www:
-    external: true  
+#networks:
+#  www:
+#    external: true  
