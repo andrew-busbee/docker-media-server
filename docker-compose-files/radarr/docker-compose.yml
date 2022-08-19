@@ -16,6 +16,8 @@ services:
       - /mnt/local/downloads/handbrake/movies:/movies   #root directory
       - /mnt/local/downloads/sabnzbd/sab_complete:/complete   #keep this dir so container can see the downloads
       - /mnt/local/downloads/handbrake/recycle/movies:/recycle   #recycle directory
+      - /mnt/media/movies:/movies
+      - /mnt/media2/movies:/movies2
     ports:
       - ${PORTS}
     restart: always
