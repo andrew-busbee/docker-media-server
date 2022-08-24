@@ -16,8 +16,8 @@ services:
       - /mnt/local/downloads/handbrake/tv:/tv   #root dir
       - /mnt/local/downloads/sabnzbd/sab_complete:/complete #keep this dir so container can see the downloads 
       - /mnt/local/downloads/handbrake/recycle/tv:/recycle   #recycle directory
-      - /mnt/media/tvSeriesContinuing:/tvSeriesContinuing
-      - /mnt/media2/tvSeriesContinuing:/tvSeriesContinuing2
+      - /mnt/media/tvSeries:/tvSeries
+      - /mnt/media2/tvSeries:/tvSeries2
     ports:
       - ${PORTS}
     restart: always
