@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=America/Chicago
+    volumes:
+      - ${DOCKERDIR}/lidarr/config:/config
+      - /mnt/media/music:/music #optional
+      - /mnt/local/downloads/sabnzbd/sab_complete:/downloads #optional
+    ports:
+      - 8686:8686
+    restart: unless-stopped
