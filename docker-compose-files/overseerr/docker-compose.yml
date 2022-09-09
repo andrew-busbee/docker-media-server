@@ -9,8 +9,8 @@ services:
       - TZ=America/Chicago
     volumes:
       - ${DOCKERROOT}/docker/overseerr/config:/config
-    networks:
-      - www
+    #networks:
+    #  - www
     ports:
       - ${PORT}:5055
     restart: unless-stopped
@@ -23,6 +23,6 @@ services:
       - traefik.http.routers.overseerr.entrypoints=http, https
       - traefik.http.routers.overseerr.rule=Host(`${URL}`)
       - traefik.http.routers.overseerr.tls=true
-networks:
-  www:
-    external: true
+#networks:
+#  www:
+#    external: true
