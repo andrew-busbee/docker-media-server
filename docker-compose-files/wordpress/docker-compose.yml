@@ -3,8 +3,8 @@ services:
   db:
     image: mysql:5.7
     container_name: ${MYSQLCONTAINERNAME}
-    networks:
-      - backend 
+    #networks:
+    #  - backend 
     volumes:
       - ${WEBSITEDIR}/mysql:/var/lib/mysql
     restart: always
@@ -22,9 +22,9 @@ services:
     image: wordpress:latest
     ports:
       - ${PORT}:80
-    networks:
-      - www
-      - backend
+    #networks:
+    #  - www
+    #  - backend
     container_name: ${WORDPRESSCONTAINERNAME}
     volumes:
       - ${WEBSITEDIR}/wordpress:/var/www/html
@@ -43,7 +43,7 @@ services:
       WORDPRESS_DB_USER: ${MYSQLUSER}
       WORDPRESS_DB_PASSWORD: ${MYSQLPASSWORD}
       WORDPRESS_DB_NAME: ${MYSQLDATABASE}
-networks:
-  www:
-    external: true 
-  backend:
+#networks:
+#  www:
+#    external: true 
+#  backend:
