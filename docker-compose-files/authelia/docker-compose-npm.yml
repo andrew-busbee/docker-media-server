@@ -8,13 +8,9 @@ services:
     volumes:
       - "${DOCKER_PATH}/authelia:/config"
     restart: unless-stopped
-#    networks:
-#      - www
     ports:
       - ${PORT}:9091
     environment:
       - TZ=${TZ}
 
-#networks:
-#  www:
-#    external: true 
+
