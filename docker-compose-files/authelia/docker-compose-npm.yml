@@ -1,6 +1,6 @@
 # This version is for use with NGIX Proxy Manager.  If you use Traefik, use the other file
 version: '3.7'
-
+  
 services:
   authelia:
     image: authelia/authelia:4
